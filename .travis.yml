@@ -1,0 +1,32 @@
+language:
+  - php
+  - c
+
+php:
+  - 5.5
+  - 5.6
+
+services:
+  - redis-server
+  - mongodb
+
+before_install:
+  - ./travis/preq.sh
+
+install:
+  - composer --prefer-source install
+
+before_script:
+  - git submodule --quiet update --init --recursive
+  - (cd cphalcon/ext; export CFLAGS="-g3 -O1 -std=gnu90 -Wall -Werror -Wno-error=uninitialized"; phpize && ./configure --silent --enable-phalcon && make --silent -j4 > /dev/null && sudo make --silent install && phpenv config-add ../travis/phalcon/app.ini)
+  - (cd zephir; ./unit-tests/ci/before_install.sh; ./install -c)
+  - zephir generate
+  - (cd ext; export CFLAGS="-g3 -O1 -std=gnu90 -Wall"; phpize && ./configure --enable-app && make --silent -j4 && sudo make --silent install && phpenv config-add ../travis/app/app.ini)
+  - ulimit -c unlimited || true
+
+script:
+  - phpunit -v
+
+after_failure:
+  - sudo apt-get -qq install gdb
+  - ./travis/after_failure.sh
