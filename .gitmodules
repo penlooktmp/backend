@@ -1,3 +1,6 @@
 [submodule "zephir"]
 	path = zephir
 	url = git@github.com:penlook/zephir.git
+[submodule "cphalcon"]
+	path = cphalcon
+	url = git@github.com:phalcon/cphalcon.git
