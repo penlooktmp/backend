@@ -163,7 +163,7 @@ class Controller extends Phalcon_Controller
         if ! this->js {
             var js;
             let js = new \stdClass();
-            let js->root = "nam.penlook.com";
+            let js->root = "";
             let js->css = new \stdClass();
             let js->trans = new \stdClass();
             let this->js = js;
