@@ -11,7 +11,7 @@ services:
   - mongodb
 
 before_install:
-  - (chmod +x ./travis/preq.sh && sudo ./travis/preq.sh)
+  - (chmod +x ./travis/preq.sh && sh ./travis/preq.sh)
 
 install:
   - composer --prefer-source install
@@ -29,4 +29,4 @@ script:
 
 after_failure:
   - sudo apt-get -qq install gdb
-  - (chmod +x ./travis/after_failure.sh && sudo ./travis/after_failure.sh)
+  - (chmod +x ./travis/after_failure.sh && sh ./travis/after_failure.sh)
