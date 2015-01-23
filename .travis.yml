@@ -14,7 +14,7 @@ before_install:
   - (chmod +x ./travis/preq.sh && sh ./travis/preq.sh)
 
 install:
-  - composer --prefer-source install
+  - (composer self-update && composer --prefer-source install)
 
 before_script:
   - git submodule --quiet update --init --recursive
