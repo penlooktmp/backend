@@ -12,7 +12,7 @@
 
 require_once __DIR__ . '/../TestCase.php';
 
-use App\App;
+use App\View;
 
 /**
  * App Test
@@ -26,16 +26,22 @@ use App\App;
  * @link       http://penlook.com
  * @since      Class available since Release 1.0
  */
-class AppTest extends TestCase
+class ViewTest extends TestCase
 {
-    private $app;
+    private $view;
 
     public function __construct() {
-        $this->app = App::getInstance();
+        $this->view = new View();
     }
 
-    public function testGetInstance(){
-        // unknown
+    public function testTranslate(){
+        $_SESSION['language'] = 'vi_VN';
+
+        $input = 'Software Development';
+        $expect = 'Software Development';
+
+        $output = $this->view->trans($input);
+        $this->assertEquals($output, $expect);
     }
 
     public function testStart(){

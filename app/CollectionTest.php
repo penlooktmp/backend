@@ -12,10 +12,10 @@
 
 require_once __DIR__ . '/../TestCase.php';
 
-use App\App;
+use App\Collection;
 
 /**
- * App Test
+ * Collection Test
  *
  * @category   Penlook Application
  * @package    App
@@ -26,31 +26,15 @@ use App\App;
  * @link       http://penlook.com
  * @since      Class available since Release 1.0
  */
-class AppTest extends TestCase
+class CollectionTest extends TestCase
 {
-    private $app;
+    private $collection;
 
-    public function __construct() {
-        $this->app = App::getInstance();
+    public function __construct(){
+        // $this->collection = new Collection();
     }
 
-    public function testGetInstance(){
-        // unknown
-    }
-
-    public function testStart(){
-        // unknown
-    }
-
-    public function testSetMode(){
-        // unknown
-    }
-
-    public function testGet(){
-        // unknown
-    }
-
-    public function testSet(){
+    public function testInitialize(){
         // unknown
     }
 }
