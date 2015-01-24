@@ -10,6 +10,7 @@
  *
  */
 namespace App;
+
 use \Phalcon\DI\FactoryDefault;
 use \Phalcon\DI;
 use \Phalcon\Test\UnitTestCase as PhalconTestCase;
