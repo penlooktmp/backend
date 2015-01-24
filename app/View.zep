@@ -77,7 +77,6 @@ class View
         if image != "" && strpos("http", image) {
             return image;
         }
-
         var storage, link;
 
         let storage = Config::getInstance()->path["site"]["static"];
