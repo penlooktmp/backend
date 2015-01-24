@@ -10,9 +10,8 @@
     stopOnFailure="false"
     syntaxCheck="false">
     <testsuites>
-
         <testsuite name="stable">
-            <directory>app/plugin</directory>
+            <directory>app</directory>
         </testsuite>
 
     </testsuites>
