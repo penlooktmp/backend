@@ -9,10 +9,7 @@
  *  Viet Nguyen <vietna@penlook.com>
  *
  */
-
-require_once __DIR__ . '/../TestCase.php';
-
-use App\App;
+namespace App;
 
 /**
  * App Test
@@ -26,7 +23,7 @@ use App\App;
  * @link       http://penlook.com
  * @since      Class available since Release 1.0
  */
-class AppTest extends TestCase
+class AppTest extends Test
 {
     private $app;
 

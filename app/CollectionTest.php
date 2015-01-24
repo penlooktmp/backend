@@ -9,8 +9,7 @@
  *  Viet Nguyen <vietna@penlook.com>
  *
  */
-
-require_once __DIR__ . '/../TestCase.php';
+namespace App;
 
 use App\Collection;
 
@@ -26,7 +25,7 @@ use App\Collection;
  * @link       http://penlook.com
  * @since      Class available since Release 1.0
  */
-class CollectionTest extends TestCase
+class CollectionTest extends Test
 {
     private $collection;
 
