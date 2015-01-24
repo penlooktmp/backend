@@ -23,7 +23,7 @@ before_script:
   - ulimit -c unlimited || true
 
 script:
-  - phpunit --verbose -c phpunit.xml
+  - phpunit --debug --verbose --strict
 
 after_failure:
   - sudo apt-get -qq install gdb
