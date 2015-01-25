@@ -42,7 +42,7 @@
     },
     "namespace": "app",
     "name": "app",
-    "description": "",
+    "description": "Penlook Backend Extension",
     "author": "Penlook Development Team",
     "version": "0.0.1",
     "verbose": false

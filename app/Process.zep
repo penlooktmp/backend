@@ -1,12 +1,12 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com> 
- *  
+ *  Tin Nguyen <tinntt@penlook.com>
+ *
  */
 namespace App;
 
@@ -117,7 +117,7 @@ class Process
                 return "text";
         }
     }
-    
+
     /**
      * MD5 Encoding
      *

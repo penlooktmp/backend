@@ -12,8 +12,8 @@ namespace App;
 
 use App\Service;
 
-/** 
- *  Model 
+/**
+ *  Model
  *
  * @category   Penlook Application
  * @package    App\Model
@@ -24,7 +24,7 @@ use App\Service;
  * @link       http://penlook.com
  * @since      Class available since Release 1.0
  */
-class Model 
+class Model
 {
     /**
      * session service instance
