@@ -32,7 +32,11 @@ class AppTest extends Test
     }
 
     public function testGetInstance(){
-        // unknown
+        $input = $this->app;
+        $expect = $this->app;
+
+        $output = App::getInstance();
+        $this->assertEquals($output, $expect);
     }
 
     public function testStart(){
