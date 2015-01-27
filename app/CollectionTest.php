@@ -30,7 +30,7 @@ class CollectionTest extends Test
     private $collection;
 
     public function __construct(){
-        // $this->collection = new Collection();
+    	// $this->collection = new Collection();
     }
 
     public function testInitialize(){

@@ -33,10 +33,16 @@ class StorageTest extends Test
     }
 
     public function testGetInstance() {
-        $this->storage = Storage::getInstance();
+        $input = $this->storage;
+        $expect = $this->storage;
+        $output = Storage::getInstance();
+        $this->assertEquals($output, $expect);
     }
 
     public function testGetStorage(){
-        // unknown
+        // $input = $this->storage;
+        // $expect = $this->storage;
+        // $output = $this->storage->getStorage();
+        // $this->assertEquals($output, $expect);
     }
 }

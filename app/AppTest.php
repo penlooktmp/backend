@@ -34,7 +34,6 @@ class AppTest extends Test
     public function testGetInstance(){
         $input = $this->app;
         $expect = $this->app;
-
         $output = App::getInstance();
         $this->assertEquals($output, $expect);
     }
