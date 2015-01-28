@@ -42,15 +42,28 @@ class AppTest extends Test
         // unknown
     }
 
-    public function testSetMode(){
+    public function testEnd(){
         // unknown
+    }
+
+    public function testSetMode(){
+        $input = false;
+        $expect = NULL;
+        $output = $this->app->setMode($input);
+        $this->assertEquals($output, $expect);
     }
 
     public function testGet(){
-        // unknown
+        $input = "viet";
+        $expect = NULL;
+        $output = $this->app->setMode($input);
+        $this->assertEquals($output, $expect);
     }
 
     public function testSet(){
-        // unknown
+        $input = "viet";
+        $expect = NULL;
+        $output = $this->app->setMode($input);
+        $this->assertEquals($output, $expect);
     }
 }

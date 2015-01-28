@@ -27,13 +27,14 @@ use App\Collection;
  */
 class CollectionTest extends Test
 {
-    private $collection;
+    protected $collection;
 
-    public function __construct(){
-    	// $this->collection = new Collection();
+    public function __construct() {
+    	//unknown
     }
 
-    public function testInitialize(){
-        // unknown
+    public function testGetInstance(){
+        //unknown
     }
+
 }

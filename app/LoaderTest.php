@@ -11,9 +11,10 @@
  */
 namespace App;
 
-use App\Storage;
+use App\Loader;
+
 /**
- * Storage Test
+ * Loader Test
  *
  * @category   Penlook Application
  * @package    App
@@ -24,25 +25,37 @@ use App\Storage;
  * @link       http://penlook.com
  * @since      Class available since Release 1.0
  */
-class StorageTest extends Test
+class LoaderTest extends Test
 {
-    private $storage;
+    protected $loader;
 
     public function __construct() {
-        $this->storage = Storage::getInstance();
+        $this->loader = Loader::getInstance();
     }
 
-    public function testGetInstance() {
-        $input = $this->storage;
-        $expect = $this->storage;
-        $output = Storage::getInstance();
+    public function testGetInstance(){
+        $input = $this->loader;
+        $expect = $this->loader;
+        $output = Loader::getInstance();
         $this->assertEquals($output, $expect);
     }
 
-    public function testGetStorage(){
-        $input = $this->storage;
+    public function testGetNamespaces(){
+        $input = $this->loader;
+        $expect = array();
+        $output = $this->loader->getNamespaces();
+        $this->assertEquals($output, $expect);
+    }
+
+    public function testRegisterNamespaces(){
+        $input = $this->loader;
         $expect = NULL;
-        $output = $this->storage->getStorage();
+        $output = $this->loader->registerNamespaces();
         $this->assertEquals($output, $expect);
     }
+
+    public function testGetLoader(){
+        //unknown
+    }
+
 }

@@ -11,10 +11,10 @@
  */
 namespace App;
 
-use App\Table;
+use App\Model;
 
 /**
- * Table Test
+ * Model Test
  *
  * @category   Penlook Application
  * @package    App
@@ -25,18 +25,16 @@ use App\Table;
  * @link       http://penlook.com
  * @since      Class available since Release 1.0
  */
-class TableTest extends Test
+class ModelTest extends Test
 {
-    private $table;
+    protected $model;
 
     public function __construct() {
-        $this->table = new Table();
+        $this->model = new Model();
     }
 
-    public function testInitialize(){
-        // $input = 'abc';
-        // $expect = "unknown";
-        // $output = $this->table->initialize();
-        // $this->assertEquals($output, $expect);
+    public function testSession(){
+        //unknown
     }
+
 }

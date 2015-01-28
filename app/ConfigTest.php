@@ -41,17 +41,11 @@ class ConfigTest extends Test
     }
 
     public function testGetConfig(){
-        // $input = $this->config;
-        // $expect = $this->config;
-        // $output = $this->config->getConfig();
-        // $this->assertEquals($output, $expect);
+        // unknown
     }
 
     public function testConfigurePath(){
-        // $input = $this->config;
-        // $expect = $this->config;
-        // $output = $this->config->getConfig();
-        // $this->assertEquals($output, $expect);
+        // unknown
     }
 
     public function testConfig(){
