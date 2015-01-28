@@ -30,11 +30,127 @@ class ControllerTest extends Test
     protected $controller;
 
     public function __construct() {
-        //unknown
+        //Unknown
     }
 
-    public function testGetInstance(){
-        //unknown
+    public function testInitialize(){
+        //Unknown
+    }
+
+    public function testInit(){
+        //Unknown
+    }
+
+    public function testExtender(){
+        //Unknown
+    }
+
+    public function testOut(){
+        //Unknown
+    }
+
+    public function testJs(){
+        //Unknown
+    }
+
+    public function testPick(){
+        //Unknown
+    }
+
+    public function testRoute(){
+        //Unknown
+    }
+
+    public function testGet(){
+        //Unknown
+    }
+
+    public function testPost(){
+        //Unknown
+    }
+
+    public function testPut(){
+        //Unknown
+    }
+
+    public function testService(){
+        //Unknown
+    }
+
+    public function testSocket(){
+        //Unknown
+    }
+
+    public function testTrans(){
+        //Unknown
+    }
+
+    public function testSession(){
+        //Unknown
+    }
+
+    public function testCookies(){
+        //Unknown
+    }
+
+    public function testDev(){
+        //Unknown
+    }
+
+    public function testForward(){
+        //Unknown
+    }
+
+    public function testGo(){
+        //Unknown
+    }
+
+    public function testRequest(){
+        //Unknown
+    }
+
+    public function testResponse(){
+        //Unknown
+    }
+
+    public function testError(){
+        //Unknown
+    }
+
+    public function testCapcha(){
+        //Unknown
+    }
+
+    public function testFont(){
+        //Unknown
+    }
+
+    public function testJson(){
+        //Unknown
+    }
+
+    public function testNg(){
+        //Unknown
+    }
+
+    public function testDebug(){
+        //Unknown
+    }
+
+    public function testView(){
+        //Unknown
+    }
+
+    public function testBeforeExecuteRoute(){
+        //Unknown
+    }
+
+    public function testAfterExecuteRoute(){
+        //Unknown
+    }
+
+    public function testRenderTemplate(){
+        //Unknown
     }
 
 }

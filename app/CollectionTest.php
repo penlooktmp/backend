@@ -30,11 +30,11 @@ class CollectionTest extends Test
     protected $collection;
 
     public function __construct() {
-    	//unknown
+    	//Unknown
     }
 
-    public function testGetInstance(){
-        //unknown
+    public function testInitialize(){
+    	//Unknown
     }
 
 }

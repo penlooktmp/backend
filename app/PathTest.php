@@ -11,10 +11,10 @@
  */
 namespace App;
 
-use App\Table;
+use App\Path;
 
 /**
- * Table Test
+ * Path Test
  *
  * @category   Penlook Application
  * @package    App
@@ -25,15 +25,25 @@ use App\Table;
  * @link       http://penlook.com
  * @since      Class available since Release 1.0
  */
-class TableTest extends Test
+class PathTest extends Test
 {
-    private $table;
+    protected $path;
 
     public function __construct() {
-        $this->table = new Table();
+        $this->path = Path::getInstance();
     }
 
-    public function testInitialize(){
-        // Unknown
+    public function testGetInstance(){
+        $input = $this->path;
+        $expect = $this->path;
+        $output = Path::getInstance();
+        $this->assertEquals($output, $expect);
+    }
+
+    public function testConfig(){
+        $input = "config";
+        $expect = "/home/vietna/config/config.yaml";
+        $output = $this->path->config($input);
+        $this->assertEquals($output, $expect);
     }
 }

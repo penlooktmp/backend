@@ -34,7 +34,11 @@ class ModelTest extends Test
     }
 
     public function testSession(){
-        //unknown
+        //Unknown
+    }
+
+    public function testIntegrate(){
+        //Not yet handled
     }
 
 }

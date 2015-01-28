@@ -39,11 +39,11 @@ class AppTest extends Test
     }
 
     public function testStart(){
-        // unknown
+        //Not yet handled
     }
 
     public function testEnd(){
-        // unknown
+        //Not yet handled
     }
 
     public function testSetMode(){

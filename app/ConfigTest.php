@@ -41,11 +41,11 @@ class ConfigTest extends Test
     }
 
     public function testGetConfig(){
-        // unknown
+        // Unknown
     }
 
     public function testConfigurePath(){
-        // unknown
+        // Unknown
     }
 
     public function testConfig(){
