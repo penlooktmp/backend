@@ -48,9 +48,6 @@ class RouterTest extends Test
     }
 
     public function testGetRouter(){
-        // $input = "testGetRouter";
-        // $expect = $this->router;
-        // $output = $this->router->getRouter();
-        // $this->assertEquals($output, $expect);
+        // Unknown
     }
 }

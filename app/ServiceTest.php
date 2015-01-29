@@ -11,10 +11,9 @@
  */
 namespace App;
 
-use App\Path;
-
+use App\Storage;
 /**
- * Path Test
+ * Storage Test
  *
  * @category   Penlook Application
  * @package    App
@@ -25,25 +24,32 @@ use App\Path;
  * @link       http://penlook.com
  * @since      Class available since Release 1.0
  */
-class PathTest extends Test
+class StorageTest extends Test
 {
-    protected $path;
+    private $storage;
 
     public function __construct() {
-        $this->path = Path::getInstance();
+        $this->storage = Storage::getInstance();
     }
 
-    public function testGetInstance(){
-        $input = $this->path;
-        $expect = $this->path;
-        $output = Path::getInstance();
+    public function testGetInstance() {
+        $input = $this->storage;
+        $expect = $this->storage;
+        $output = Storage::getInstance();
         $this->assertEquals($output, $expect);
     }
 
-    public function testConfig(){
-        $input = "config";
-        $expect = $this->path->config ."/config.yaml";
-        $output = $this->path->config($input);
+    public function testGetStorage(){
+        $input = $this->storage;
+        $expect = NULL;
+        $output = $this->storage->getStorage();
         $this->assertEquals($output, $expect);
     }
+    
+    // public function testGetRedis(){
+    //     $input = $this->storage;
+    //     $expect = NULL;
+    //     $output = $this->storage->getRedis();
+    //     $this->assertEquals($output, $expect);
+    // }
 }

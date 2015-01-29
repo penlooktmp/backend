@@ -11,9 +11,10 @@
  */
 namespace App;
 
-use App\Storage;
+use App\Process;
+
 /**
- * Storage Test
+ * Process Test
  *
  * @category   Penlook Application
  * @package    App
@@ -24,25 +25,30 @@ use App\Storage;
  * @link       http://penlook.com
  * @since      Class available since Release 1.0
  */
-class StorageTest extends Test
+class ProcessTest extends Test
 {
-    private $storage;
+    protected $process;
 
     public function __construct() {
-        $this->storage = Storage::getInstance();
+        $this->process = Process::getInstance();
     }
 
-    public function testGetInstance() {
-        $input = $this->storage;
-        $expect = $this->storage;
-        $output = Storage::getInstance();
+    public function testGetInstance(){
+        $input = $this->process;
+        $expect = $this->process;
+        $output = Process::getInstance();
         $this->assertEquals($output, $expect);
     }
 
-    public function testGetStorage(){
-        $input = $this->storage;
-        $expect = NULL;
-        $output = $this->storage->getStorage();
-        $this->assertEquals($output, $expect);
+    public function testArr2obj(){
+        // $input = array("test" => "test");
+        // $expect = unknown;
+        // $output = $this->process->arr2obj($input);
+        // $this->assertEquals($output, $expect);
     }
+
+    public function testEncodePassword(){
+        // Unknown
+    }
+
 }
