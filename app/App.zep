@@ -68,16 +68,6 @@ class App
         return self::static_app;
     }
 
-    public inline function start()
-    {
-
-    }
-
-    public inline function end()
-    {
-
-    }
-
     public inline function setMode(production = false)
     {
         let this->debug = false;

@@ -30,18 +30,21 @@ class PathTest extends Test
 {
     protected $path;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->path = Path::getInstance();
     }
 
-    public function testGetInstance(){
+    public function testGetInstance()
+    {
         $input = $this->path;
         $expect = $this->path;
         $output = Path::getInstance();
         $this->assertEquals($output, $expect);
     }
 
-    public function testConfig(){
+    public function testConfig()
+    {
         $input = "config";
         $expect = $this->path->config ."/config.yaml";
         $output = $this->path->config($input);

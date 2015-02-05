@@ -6,7 +6,7 @@
  *                    support@penlook.com
  *
  * Authors:
- *  Viet Nguyen <vietna@penlook.com>
+ *      Viet Nguyen <vietna@penlook.com>
  *
  */
 
@@ -19,7 +19,6 @@ use App\Router;
  *
  * @category   Penlook Application
  * @package    App
- * @author     Viet Nguyen <vietna@penlook.com>
  * @copyright  Penlook Development Team
  * @license    Commercial
  * @version    1.0
@@ -30,25 +29,29 @@ class RouterTest extends Test
 {
     protected $router;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->router = Router::getInstance();
     }
 
-    public function testGetInstance(){
+    public function testGetInstance()
+    {
         $input = $this->router;
         $expect = $this->router;
         $output = Router::getInstance();
         $this->assertEquals($output, $expect);
     }
 
-    public function testConfigureRouter(){
+    public function testConfigureRouter()
+    {
         // $input = "testConfigureRouter";
         // $expect = "/home/vietna/config/config.yaml";
         // $output = $this->router->configureRouter();
         // $this->assertEquals($output, $expect);
     }
 
-    public function testGetRouter(){
+    public function testGetRouter()
+    {
         // Unknown
     }
 }

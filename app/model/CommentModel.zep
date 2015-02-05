@@ -5,7 +5,7 @@
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com>
+ *      Tin Nguyen <tinntt@penlook.com>
  *
  */
 namespace App\Model;

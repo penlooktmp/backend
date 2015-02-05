@@ -29,11 +29,13 @@ class ViewTest extends Test
 {
     private $view;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->view = new View();
     }
 
-    public function testTranslate(){
+    public function testTranslate()
+    {
         $_SESSION['language'] = 'vi_VN';
 
         $input = 'Software Development';
@@ -43,7 +45,8 @@ class ViewTest extends Test
         $this->assertEquals($output, $expect);
     }
 
-    public function testSite(){
+    public function testSite()
+    {
         $_SERVER['SERVER_NAME'] = 'penlook.com';
 
         $input = 'abc';
@@ -52,7 +55,8 @@ class ViewTest extends Test
         $this->assertEquals($output, $expect);
     }
 
-    public function testJson(){
+    public function testJson()
+    {
         $input = new \stdClass();
         $input->test1 = "test1";
         $input->test2 = "test2";
@@ -71,7 +75,8 @@ class ViewTest extends Test
         $this->assertEquals($output, $expect);
     }
 
-    public function testCss(){
+    public function testCss()
+    {
         $input = "test";
 
         $expect = '<link rel="stylesheet" type="text/css" href="test.css" />';

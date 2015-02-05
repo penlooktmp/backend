@@ -28,6 +28,7 @@ use Phalcon\Config as Phalcon_Config;
  */
 class Config
 {
+
     /**
      * Configuration
      *
@@ -124,7 +125,7 @@ class Config
 
     public inline function config()
     {
-        
+
         /*
         return [
             "app" : [

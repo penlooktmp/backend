@@ -30,15 +30,18 @@ class ModelTest extends Test
 {
     protected $model;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->model = new Model();
     }
 
-    public function testSession(){
+    public function testSession()
+    {
         //Unknown
     }
 
-    public function testIntegrate(){
+    public function testIntegrate()
+    {
         //Not yet handled
     }
 

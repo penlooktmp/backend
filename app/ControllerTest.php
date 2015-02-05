@@ -30,127 +30,158 @@ class ControllerTest extends Test
 {
     protected $controller;
 
-    public function __construct() {
+    public function __construct() 
+    {
         //Unknown
     }
 
-    public function testInitialize(){
+    public function testInitialize()
+    {
         //Unknown
     }
 
-    public function testInit(){
+    public function testInit()
+    {
         //Unknown
     }
 
-    public function testExtender(){
+    public function testExtender()
+    {
         //Unknown
     }
 
-    public function testOut(){
+    public function testOut()
+    {
         //Unknown
     }
 
-    public function testJs(){
+    public function testJs()
+    {
         //Unknown
     }
 
-    public function testPick(){
+    public function testPick()
+    {
         //Unknown
     }
 
-    public function testRoute(){
+    public function testRoute()
+    {
         //Unknown
     }
 
-    public function testGet(){
+    public function testGet()
+    {
         //Unknown
     }
 
-    public function testPost(){
+    public function testPost()
+    {
         //Unknown
     }
 
-    public function testPut(){
+    public function testPut()
+    {
         //Unknown
     }
 
-    public function testService(){
+    public function testService()
+    {
         //Unknown
     }
 
-    public function testSocket(){
+    public function testSocket()
+    {
         //Unknown
     }
 
-    public function testTrans(){
+    public function testTrans()
+    {
         //Unknown
     }
 
-    public function testSession(){
+    public function testSession()
+    {
         //Unknown
     }
 
-    public function testCookies(){
+    public function testCookies()
+    {
         //Unknown
     }
 
-    public function testDev(){
+    public function testDev()
+    {
         //Unknown
     }
 
-    public function testForward(){
+    public function testForward()
+    {
         //Unknown
     }
 
-    public function testGo(){
+    public function testGo()
+    {
         //Unknown
     }
 
-    public function testRequest(){
+    public function testRequest()
+    {
         //Unknown
     }
 
-    public function testResponse(){
+    public function testResponse()
+    {
         //Unknown
     }
 
-    public function testError(){
+    public function testError()
+    {
         //Unknown
     }
 
-    public function testCapcha(){
+    public function testCapcha()
+    {
         //Unknown
     }
 
-    public function testFont(){
+    public function testFont()
+    {
         //Unknown
     }
 
-    public function testJson(){
+    public function testJson()
+    {
         //Unknown
     }
 
-    public function testNg(){
+    public function testNg()
+    {
         //Unknown
     }
 
-    public function testDebug(){
+    public function testDebug()
+    {
         //Unknown
     }
 
-    public function testView(){
+    public function testView()
+    {
         //Unknown
     }
 
-    public function testBeforeExecuteRoute(){
+    public function testBeforeExecuteRoute()
+    {
         //Unknown
     }
 
-    public function testAfterExecuteRoute(){
+    public function testAfterExecuteRoute()
+    {
         //Unknown
     }
 
-    public function testRenderTemplate(){
+    public function testRenderTemplate()
+    {
         //Unknown
     }
 

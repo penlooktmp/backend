@@ -30,32 +30,37 @@ class LoaderTest extends Test
 {
     protected $loader;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->loader = Loader::getInstance();
     }
 
-    public function testGetInstance(){
+    public function testGetInstance()
+    {
         $input = $this->loader;
         $expect = $this->loader;
         $output = Loader::getInstance();
         $this->assertEquals($output, $expect);
     }
 
-    public function testGetNamespaces(){
+    public function testGetNamespaces()
+    {
         $input = $this->loader;
         $expect = array();
         $output = $this->loader->getNamespaces();
         $this->assertEquals($output, $expect);
     }
 
-    public function testRegisterNamespaces(){
+    public function testRegisterNamespaces()
+    {
         $input = $this->loader;
         $expect = NULL;
         $output = $this->loader->registerNamespaces();
         $this->assertEquals($output, $expect);
     }
 
-    public function testGetLoader(){
+    public function testGetLoader()
+    {
         //Unknown
     }
 

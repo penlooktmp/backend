@@ -26,42 +26,50 @@ namespace App;
  */
 class AppTest extends Test
 {
+
     private $app;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->app = App::getInstance();
     }
 
-    public function testGetInstance(){
+    public function testGetInstance()
+    {
         $input = $this->app;
         $expect = $this->app;
         $output = App::getInstance();
         $this->assertEquals($output, $expect);
     }
 
-    public function testStart(){
+    public function testStart()
+    {
         //Not yet handled
     }
 
-    public function testEnd(){
+    public function testEnd()
+    {
         //Not yet handled
     }
 
-    public function testSetMode(){
+    public function testSetMode()
+    {
         $input = false;
         $expect = NULL;
         $output = $this->app->setMode($input);
         $this->assertEquals($output, $expect);
     }
 
-    public function testGet(){
+    public function testGet()
+    {
         $input = "viet";
         $expect = NULL;
         $output = $this->app->setMode($input);
         $this->assertEquals($output, $expect);
     }
 
-    public function testSet(){
+    public function testSet()
+    {
         $input = "viet";
         $expect = NULL;
         $output = $this->app->setMode($input);

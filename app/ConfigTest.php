@@ -30,26 +30,31 @@ class ConfigTest extends Test
 {
     protected $config;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->config = Config::getInstance();
     }
 
-    public function testGetInstance(){
+    public function testGetInstance()
+    {
         $input = $this->config;
         $expect = $this->config;
         $output = Config::getInstance();
         $this->assertEquals($output, $expect);
     }
 
-    public function testGetConfig(){
+    public function testGetConfig()
+    {
         // Unknown
     }
 
-    public function testConfigurePath(){
+    public function testConfigurePath()
+    {
         // Unknown
     }
 
-    public function testConfig(){
+    public function testConfig()
+    {
         // $input = $this->config;
         // $expect = [
         //     "app" : [
