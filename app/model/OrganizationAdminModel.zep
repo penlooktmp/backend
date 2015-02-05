@@ -1,41 +1,41 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com> 
- *  
+ *  Tin Nguyen <tinntt@penlook.com>
+ *
  */
-namespace App\Model; 
+namespace App\Model;
 
 use App\Model\Table\OrgAdmin;
 use App\Model;
 
-/**  
+/**
  * Organization Model Model
- *     
- * @category   Penlook Application  
- * @package    App\Model  
+ *
+ * @category   Penlook Application
+ * @package    App\Model
  * @author     Tin Nguyen <tinntt@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial 
- * @version    1.0  
+ * @license    Commercial
+ * @version    1.0
  * @link       http://penlook.com
- * @since      Class available since Release 1.0 
- */ 
+ * @since      Class available since Release 1.0
+ */
 class OrganizationAdminModel extends Model
-{	
+{
     /**
      * Organization id instance
-     * 
+     *
      * @var id
      */
     public id;
     /**
      * organization type
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @var $type
      */
@@ -60,7 +60,7 @@ class OrganizationAdminModel extends Model
     /**
      * Get Admin
      * This is get admin function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return Object
      */
@@ -76,7 +76,7 @@ class OrganizationAdminModel extends Model
     /**
      * Add Admin
      * This is get all skill function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      */
     public inline function addAdmin(var user_id)

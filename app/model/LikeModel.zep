@@ -1,35 +1,35 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com> 
- *  
+ *  Tin Nguyen <tinntt@penlook.com>
+ *
  */
-namespace App\Model; 
+namespace App\Model;
 
 use App\Model\Collection\Like;
 use App\Model;
 
-/**  
+/**
  * Comment Model
- *     
- * @category   Penlook Application  
- * @package    App\Model  
+ *
+ * @category   Penlook Application
+ * @package    App\Model
  * @author     Tin Nguyen <tinntt@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial 
- * @version    1.0  
+ * @license    Commercial
+ * @version    1.0
  * @link       http://penlook.com
- * @since      Class available since Release 1.0 
- */ 
+ * @since      Class available since Release 1.0
+ */
 class LikeModel extends Model
-{	
+{
     /**
      * SkillTable instance
-     * 
+     *
      * @var skill
      */
     private like;
@@ -54,7 +54,7 @@ class LikeModel extends Model
         else
         {
             if (!is_null(status_id))
-            { 
+            {
                 let this->like = Like::find([[
                     "data.parent_id" : status_id
                     ]
@@ -69,7 +69,7 @@ class LikeModel extends Model
 
     /**
      * Get Data from table object
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return table object
      */
@@ -87,7 +87,7 @@ class LikeModel extends Model
     /**
      * Is Valid
      * This is check valid id function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return bool
      */

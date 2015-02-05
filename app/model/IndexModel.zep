@@ -1,45 +1,45 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com> 
- *  
+ *  Tin Nguyen <tinntt@penlook.com>
+ *
  */
-namespace App\Model; 
+namespace App\Model;
 
 use App\Model\Table\User;
 use App\Model;
 
 
-/**  
+/**
  * Index Model
- *     
- * @category   Penlook Application  
- * @package    App\Model  
+ *
+ * @category   Penlook Application
+ * @package    App\Model
  * @author     Tin Nguyen <tinntt@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial 
- * @version    1.0  
+ * @license    Commercial
+ * @version    1.0
  * @link       http://penlook.com
- * @since      Class available since Release 1.0 
- */ 
+ * @since      Class available since Release 1.0
+ */
 class IndexModel extends Model
-{	
+{
     /**
      * IndexModel instance
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @var IndexModel
      */
 	private static static_index;
-	
+
 	/**
      * Get Instance
      * This is get instance function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return IndexModel
      */
@@ -55,7 +55,7 @@ class IndexModel extends Model
     /**
      * Get Users
      * This is get users function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return Array Object
      */

@@ -1,37 +1,37 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com> 
- *  
+ *  Tin Nguyen <tinntt@penlook.com>
+ *
  */
-namespace App\Model; 
+namespace App\Model;
 
 use App\Model\Table\Country;
 use App\Model\Table\User;
 use App\Model\Table\Social;
 use App\Model;
 
-/**  
+/**
  * User Model
- *     
- * @category   Penlook Application  
- * @package    App\Model  
+ *
+ * @category   Penlook Application
+ * @package    App\Model
  * @author     Tin Nguyen <tinntt@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial 
- * @version    1.0  
+ * @license    Commercial
+ * @version    1.0
  * @link       http://penlook.com
- * @since      Class available since Release 1.0 
- */ 
+ * @since      Class available since Release 1.0
+ */
 class UserModel extends Model
-{	
+{
     /**
      * UserTable instance
-     * 
+     *
      * @var user
      */
     private user;
@@ -54,7 +54,7 @@ class UserModel extends Model
 
     /**
      * Get User from table object
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return table object
      */
@@ -65,7 +65,7 @@ class UserModel extends Model
     /**
      * Is valid
      * This is check valid user function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return bool
      */
@@ -77,7 +77,7 @@ class UserModel extends Model
     /**
      * Get title
      * This is get title function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -89,7 +89,7 @@ class UserModel extends Model
     /**
      * Get description
      * This is get description function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -101,7 +101,7 @@ class UserModel extends Model
     /**
      * Get nationality
      * This is get nationality function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -118,7 +118,7 @@ class UserModel extends Model
     /**
      * Get social
      * This is get social function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return object
      */
@@ -133,7 +133,7 @@ class UserModel extends Model
     /**
      * Get signature
      * This is get signature function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -149,7 +149,7 @@ class UserModel extends Model
     /**
      * Get fullname
      * This is get fullname function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -161,7 +161,7 @@ class UserModel extends Model
     /**
      * Get headline
      * This is get headline function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -173,7 +173,7 @@ class UserModel extends Model
     /**
      * Get professional
      * This is get professional function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -185,7 +185,7 @@ class UserModel extends Model
     /**
      * Get Current
      * This is get current function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -197,7 +197,7 @@ class UserModel extends Model
     /**
      * Get previous
      * This is get privious function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -209,7 +209,7 @@ class UserModel extends Model
     /**
      * Get education
      * This is get education function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -221,7 +221,7 @@ class UserModel extends Model
     /**
      * Get email
      * This is get email function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -233,7 +233,7 @@ class UserModel extends Model
     /**
      * Get alias
      * This is get alias function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -245,7 +245,7 @@ class UserModel extends Model
     /**
      * Get avatar
      * This is get avatar function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -260,7 +260,7 @@ class UserModel extends Model
     /**
      * Get language
      * This is get language function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -272,7 +272,7 @@ class UserModel extends Model
     /**
      * Get country
      * This is get country function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */
@@ -284,7 +284,7 @@ class UserModel extends Model
     /**
      * Get register day
      * This is get register day function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return string
      */

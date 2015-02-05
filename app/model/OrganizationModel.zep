@@ -1,36 +1,36 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com> 
- *  
+ *  Tin Nguyen <tinntt@penlook.com>
+ *
  */
-namespace App\Model; 
+namespace App\Model;
 
 use App\Model\Table\Country;
 use App\Model\Table\Org;
 use App\Model;
 
-/**  
+/**
  * Organization Model
- *     
- * @category   Penlook Application  
- * @package    App\Model  
+ *
+ * @category   Penlook Application
+ * @package    App\Model
  * @author     Tin Nguyen <tinntt@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial 
- * @version    1.0  
+ * @license    Commercial
+ * @version    1.0
  * @link       http://penlook.com
- * @since      Class available since Release 1.0 
- */ 
+ * @since      Class available since Release 1.0
+ */
 class OrganizationModel extends Model
-{	
+{
     /**
      * OrgTable instance
-     * 
+     *
      * @var Org
      */
     private org;
@@ -51,7 +51,7 @@ class OrganizationModel extends Model
 
     /**
      * Get Data from table object
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return table object
      */
@@ -63,7 +63,7 @@ class OrganizationModel extends Model
     /**
      * Is Valid
      * This is check valid id function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return bool
      */
@@ -75,7 +75,7 @@ class OrganizationModel extends Model
     /**
      * Get Nationality
      * This is get nationality function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @param bool $alias
      * @return string
@@ -87,13 +87,13 @@ class OrganizationModel extends Model
             "id = '".this->org->nationality."'"
         ]);
 
-        return country; 
+        return country;
     }
 
     /**
      * Add Organization
      * This is add organization function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @param string $parent_name
      * @param string $org_name
@@ -117,7 +117,7 @@ class OrganizationModel extends Model
     /**
      * Update Organization
      * This is update organization function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @param string $id
      * @param string $subtitle

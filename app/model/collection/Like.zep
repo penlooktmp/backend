@@ -1,30 +1,30 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com> 
- *  
+ *  Tin Nguyen <tinntt@penlook.com>
+ *
  */
-namespace App\Model\Collection; 
+namespace App\Model\Collection;
 
 use App\Collection;
- 
-/**  
- * Comment Collection 
- *     
- * @category   Penlook Application  
+
+/**
+ * Comment Collection
+ *
+ * @category   Penlook Application
  * @package    App\Collection
  * @author     Tin Nguyen <tinntt@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial 
- * @version    1.0  
+ * @license    Commercial
+ * @version    1.0
  * @link       http://penlook.com
- * @since      Class available since Release 1.0 
+ * @since      Class available since Release 1.0
  */
-class Like extends Collection 
+class Like extends Collection
 {
 	public data;
 

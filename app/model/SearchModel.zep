@@ -1,37 +1,37 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com> 
- *  
+ *  Tin Nguyen <tinntt@penlook.com>
+ *
  */
-namespace App\Model; 
+namespace App\Model;
 
 use App\Model\Table\Skill;
 use App\Model\Table\Org;
 use App\Model\Table\User;
 use App\Model;
 
-/**  
+/**
  * Search Model
- *     
- * @category   Penlook Application  
+ *
+ * @category   Penlook Application
  * @package    App\Model
  * @author     Tin Nguyen <tinntt@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial 
- * @version    1.0  
+ * @license    Commercial
+ * @version    1.0
  * @link       http://penlook.com
- * @since      Class available since Release 1.0 
- */ 
+ * @since      Class available since Release 1.0
+ */
 class SearchModel extends Model
-{	
+{
     /**
      * Keyword search
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @var $keyword
      */
@@ -54,7 +54,7 @@ class SearchModel extends Model
     /**
      * Change Keyword
      * This is change keyword function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @param string $keyword
      */
@@ -80,7 +80,7 @@ class SearchModel extends Model
     /**
      * Get Suggest User
      * This is get suggest user function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @param Array Object
      */
@@ -98,7 +98,7 @@ class SearchModel extends Model
     /**
      * Get Suggest Skill
      * This is get suggest skill function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @param Array Object
      */
@@ -111,12 +111,12 @@ class SearchModel extends Model
         ])->toArray();
 
         return this->scan(skill);
-    }  
+    }
 
     /**
      * Get Suggest Organization
      * This is get suggest organization function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @param Array Object
      */

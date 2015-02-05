@@ -1,30 +1,30 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com> 
- *  
+ *  Tin Nguyen <tinntt@penlook.com>
+ *
  */
-namespace App\Model\Collection; 
+namespace App\Model\Collection;
 
 use App\Collection;
- 
-/**  
- * Flow Collection 
- *     
- * @category   Penlook Application  
+
+/**
+ * Flow Collection
+ *
+ * @category   Penlook Application
  * @package    App\Collection
  * @author     Tin Nguyen <tinntt@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial 
- * @version    1.0  
+ * @license    Commercial
+ * @version    1.0
  * @link       http://penlook.com
- * @since      Class available since Release 1.0 
+ * @since      Class available since Release 1.0
  */
-class Topic extends Collection 
+class Topic extends Collection
 {
     public data;
     public type;
@@ -57,7 +57,7 @@ class Topic extends Collection
     {
         let this->time = date("Y/m/d H:i:s");
         let this->comment = [];
-        let this->like = []; 
+        let this->like = [];
         let this->type = type;
         let this->data = data;
         this->save();
@@ -85,7 +85,7 @@ class Topic extends Collection
     	var data;
     	let data = ["text" : text];
     	let this->time 		= date("Y/m/d H:i:s");
-    	let this->type 		= "update_status";   	
+    	let this->type 		= "update_status";
     	let this->data 		= data;
     	this->save();
     }

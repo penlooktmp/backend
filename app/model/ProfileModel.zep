@@ -1,32 +1,32 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com> 
- *  
+ *  Tin Nguyen <tinntt@penlook.com>
+ *
  */
-namespace App\Model; 
+namespace App\Model;
 
 use App\Model\Table\Widget;
 use App\Model;
 
-/**  
+/**
  * Profile Model
- *     
- * @category   Penlook Application  
- * @package    App\Model  
+ *
+ * @category   Penlook Application
+ * @package    App\Model
  * @author     Tin Nguyen <tinntt@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial 
- * @version    1.0  
+ * @license    Commercial
+ * @version    1.0
  * @link       http://penlook.com
- * @since      Class available since Release 1.0 
- */ 
+ * @since      Class available since Release 1.0
+ */
 class ProfileModel extends Model
-{	
+{
     /**
      * Constructor
      *
@@ -40,7 +40,7 @@ class ProfileModel extends Model
     /**
      * Get Widgets
      * This is get Widgets function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return Array object
      */

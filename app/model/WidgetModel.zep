@@ -1,39 +1,39 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com> 
- *  
+ *  Tin Nguyen <tinntt@penlook.com>
+ *
  */
-namespace App\Model; 
+namespace App\Model;
 
 use App\Model\Table\Widget;
 use App\Model;
 use Phalcon\Mvc\View\Simple;
 
-/**  
+/**
  * Widget Model
- *     
- * @category   Penlook Application  
- * @package    App\Model  
+ *
+ * @category   Penlook Application
+ * @package    App\Model
  * @author     Tin Nguyen <tinntt@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial 
- * @version    1.0  
+ * @license    Commercial
+ * @version    1.0
  * @link       http://penlook.com
- * @since      Class available since Release 1.0 
- */ 
+ * @since      Class available since Release 1.0
+ */
 class WidgetModel extends Model
-{	
+{
     /**
      * Widget View
      *
      * @var ViewModel
      */
-    
+
     public view;
 
     /**
@@ -81,7 +81,7 @@ class WidgetModel extends Model
 
     /**
      * Get Data from table object
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return table object
      */
@@ -89,11 +89,11 @@ class WidgetModel extends Model
     {
         return this->widget;
     }
-    
+
     /**
      * Is Enable
      * This is check enable widget function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return bool
      */
@@ -105,7 +105,7 @@ class WidgetModel extends Model
     /**
      * Set Template
      * This is set template function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @param string $widget_name
      */
@@ -118,7 +118,7 @@ class WidgetModel extends Model
     /**
      * Create
      * This is create function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      */
     public inline function create()

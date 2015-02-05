@@ -1,35 +1,35 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com> 
- *  
+ *  Tin Nguyen <tinntt@penlook.com>
+ *
  */
-namespace App\Model; 
+namespace App\Model;
 
 use App\Model\Table\Language;
 use App\Model;
 
-/**  
+/**
  * Language Model
- *     
- * @category   Penlook Application  
- * @package    App\Model  
+ *
+ * @category   Penlook Application
+ * @package    App\Model
  * @author     Tin Nguyen <tinntt@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial 
- * @version    1.0  
+ * @license    Commercial
+ * @version    1.0
  * @link       http://penlook.com
- * @since      Class available since Release 1.0 
- */ 
+ * @since      Class available since Release 1.0
+ */
 class LanguageModel extends Model
-{	
+{
     /**
      * LanguageTable instance
-     * 
+     *
      * @var AppModel
      */
      private language;
@@ -61,7 +61,7 @@ class LanguageModel extends Model
 
     /**
      * Get Data from table object
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return table object
      */
@@ -72,7 +72,7 @@ class LanguageModel extends Model
     /**
      * Is Valid
      * This is check valid function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return bool
      */
@@ -84,7 +84,7 @@ class LanguageModel extends Model
     /**
      * Get All Languages
      * This is get all languages function
-     * 
+     *
      * @author Tin Nguyen <tinntt@penlook.com>
      * @return Array Object
      */

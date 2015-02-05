@@ -1,37 +1,37 @@
 /*
- * Copyright (C) 2014 Penlook  
+ * Copyright (C) 2014 Penlook
  *                    Vietnam
  *                    http://www.penlook.com
  *                    support@penlook.com
  *
  * Authors:
- *  Loi Nguyen <loint@penlook.com> 
- *  
+ *  Loi Nguyen <loint@penlook.com>
+ *
  */
 namespace App\Model\Table;
- 
+
 use App\Table;
 
-/**  
- * User Table 
- *     
- * @category   Penlook Application  
+/**
+ * User Table
+ *
+ * @category   Penlook Application
  * @package    App\Table
  * @author     Loi Nguyen <loint@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial 
- * @version    1.0  
+ * @license    Commercial
+ * @version    1.0
  * @link       http://penlook.com
- * @since      Class available since Release 1.0 
+ * @since      Class available since Release 1.0
  */
-class User extends Table 
+class User extends Table
 {
 	/**
      * Initialize Table
-     * 
+     *
      */
 	public inline function initialize()
-    {   
+    {
     	parent::initialize();
     }
 }
