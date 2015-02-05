@@ -5,9 +5,11 @@
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <tinntt@penlook.com>
- *
+ *      Nam Vo      <namvh@penlook.com>
+ *      Loi Nguyen  <loint@penlook.com>
+ *      Tin Nguyen  <tinntt@penlook.com>
  */
+
 namespace App;
 
 use App\Service;

@@ -5,9 +5,11 @@
  *                    support@penlook.com
  *
  * Authors:
- *  Tin Nguyen <loint@penlook.com>
- *
+ *      Nam Vo      <namvh@penlook.com>
+ *      Loi Nguyen  <loint@penlook.com>
+ *      Tin Nguyen  <tinntt@penlook.com>
  */
+
 namespace App;
 
 use Phalcon\Mvc\Controller as Phalcon_Controller;

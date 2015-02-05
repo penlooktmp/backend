@@ -5,9 +5,11 @@
  *                    support@penlook.com
  *
  * Authors:
- *  Loi Nguyen <loint@penlook.com>
- *
+ *      Nam Vo      <namvh@penlook.com>
+ *      Loi Nguyen  <loint@penlook.com>
+ *      Tin Nguyen  <tinntt@penlook.com>
  */
+
 namespace App;
 
 /**
@@ -15,7 +17,6 @@ namespace App;
  *
  * @category   Penlook Application
  * @package    App\Config
- * @author     Loi Nguyen <loint@penlook.com>
  * @copyright  Penlook Development Team
  * @license    Commercial
  * @version    1.0

@@ -5,9 +5,11 @@
  *                    support@penlook.com
  *
  * Authors:
- *  Loi Nguyen <loint@penlook.com>
- *
+ *      Nam Vo      <namvh@penlook.com>
+ *      Loi Nguyen  <loint@penlook.com>
+ *      Tin Nguyen  <tinntt@penlook.com>
  */
+
 namespace App;
 
 use Phalcon\Config as Phalcon_Config;

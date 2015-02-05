@@ -9,6 +9,7 @@
  *  Viet Nguyen <vietna@penlook.com>
  *
  */
+
 namespace App;
 
 use App\Collection;
