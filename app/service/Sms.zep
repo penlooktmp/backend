@@ -29,7 +29,7 @@ class Sms
 
     public sms;
 
-    public inline function create(sender, recipient, message)
+    public inline function create(recipient, message)
     {
         var xmlsms;
 

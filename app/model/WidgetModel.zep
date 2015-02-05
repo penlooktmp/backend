@@ -111,8 +111,8 @@ class WidgetModel extends Model
      */
     public inline function setTemplate(var widget_name)
     {
+        echo widget_name;
         // this->view->setContent(this->layout_folder . "/" . widget_name);
-
     }
 
     /**

@@ -118,11 +118,11 @@ class View
 
 	public inline static function less(resources)
 	{
-        var files, styles, path, index, file, ext;
+        var files, styles, path, file, ext;
         let files = resources->getResources();
         let styles = "";
 
-        for index, file in files {
+        for _, file in files {
             let path = file->getPath();
             let ext = Process::getFileType(path);
             let styles .= "<link rel=\"stylesheet/" . ext . "\" type=\"text/css\" href=\"/". path ."\" />";
@@ -133,11 +133,11 @@ class View
 
     public inline static function coffee(resources)
     {
-        var files, styles, index, file;
+        var files, styles, file;
         let files = resources;
         let styles = "";
 
-        for index, file in files {
+        for _, file in files {
             let styles .= "<script src=\"/js/". file .".js\"></script>";
         }
 

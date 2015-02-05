@@ -146,7 +146,7 @@ class Service
      */
     public inline static function getVolt(view, di)
     {
-        var volt, path, funcs, compiler;
+        var volt, path, compiler;
         let path   = Path::getInstance();
         let volt   = new VoltEngine(view, di);
 
@@ -156,12 +156,15 @@ class Service
             "compileAlways"     : true
         ]);
 
+        /*
+        var funcs;
         let funcs = [
             "trans",
             "site",
             "json",
             "img"
         ];
+        */
 
         let compiler = volt->getCompiler();
         self::setCompiler(compiler);

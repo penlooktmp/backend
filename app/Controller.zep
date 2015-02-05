@@ -594,12 +594,12 @@ class Controller extends Phalcon_Controller
                 }
             }
 
-            var index, filename, file_path, file_coffee, file_js, javascript, coffee, less, cmd;
+            var filename, file_path, file_coffee, file_js, javascript, coffee, less, cmd;
             let coffee = [];
             let javascript = [];
             let less = "\n";
 
-            for index, filename in custom_css {
+            for _, filename in custom_css {
                 let filename = this->_path->web . "/css/" . filename . ".less";
                 if (file_exists(filename)) {
                     let less = less . file_get_contents(filename) . "\n";
@@ -612,7 +612,7 @@ class Controller extends Phalcon_Controller
 
             exec(cmd);
 
-            for index, filename in custom_js {
+            for _, filename in custom_js {
                 let file_path = this->_path->web . "/js/" . filename;
                 let file_coffee = file_path . ".coffee";
                 let file_js = file_path . ".js";

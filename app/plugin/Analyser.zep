@@ -24,7 +24,7 @@ namespace App\Plugin;
  */
 class Analyser
 {
-    public static function analys(html)
+    public static function analys()
     {
         //var session, redis, css_name, js_name;
         var session, redis, css_name, js_name;
@@ -88,21 +88,21 @@ class Analyser
         }
 
         // Parse and unique class
-        var index, value, _class, _id, _tag, dom;
+        var value, _class, _id, _tag, dom;
 
         let _class = [];
         let _id    = [];
         let _tag   = [];
 
-        for index, value in class_blocks {
+        for _, value in class_blocks {
             let _class = array_merge(_class, explode(" ", value));
         }
 
-        for index, value in id_blocks {
+        for _, value in id_blocks {
             let _id = array_merge(_id, explode(" ", value));
         }
 
-        for index, value in tag_blocks {
+        for _, value in tag_blocks {
             let _tag = array_merge(_tag, explode(" ", value));
         }
 

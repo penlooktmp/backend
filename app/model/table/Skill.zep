@@ -26,5 +26,4 @@ use App\Table;
  */
 class Skill extends Table
 {
-
 }

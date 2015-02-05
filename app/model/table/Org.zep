@@ -26,8 +26,4 @@ use App\Table;
  */
 class Org extends Table
 {
-	public function initialize()
-    {
-    	parent::initialize();
-    }
 }

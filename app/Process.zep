@@ -228,24 +228,9 @@ class Process
         return true;
     }
 
-    public function validEmail(var email)
-    {
-
-    }
-
-    public function validPassword(var password)
-    {
-
-    }
-
     public function splitWord(var str)
     {
         return explode(str, " ");
-    }
-
-    public function moreText(var text, var n)
-    {
-
     }
 
 }

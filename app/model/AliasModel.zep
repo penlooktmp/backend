@@ -72,26 +72,6 @@ class AliasModel extends Model
     }
 
     /**
-     * Set Alias
-     * This is set alias function
-     *
-     * @author Tin Nguyen <tinntt@penlook.com>
-     * @param $old_alias
-     * @param $alias
-     * @param $type
-     */
-    public function setAlias(var old_alias = null, var alias, var type)
-    {
-        if is_null(old_alias) {
-            // Add alias
-
-        } else {
-            // Update alias
-
-        }
-    }
-
-    /**
      * Get controller
      * This is get controller function
      *

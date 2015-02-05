@@ -77,18 +77,6 @@ class AjaxModel extends Model
         ]);
     }
 
-    public function searchUser(string keyword)
-    {
-        /*
-        $this->more($this->select()
-                         ->from('user')
-                         ->where(
-
-                          )
-        );
-        */
-    }
-
     /**
      * Is exist email
      * This is check existed email function

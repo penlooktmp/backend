@@ -122,6 +122,8 @@ class Config
 
     public inline function config()
     {
+        
+        /*
         return [
             "app" : [
                 "language" : "en_US"
@@ -162,11 +164,8 @@ class Config
                     "host" : "127.0.0.1",
                     "port" : 6379
                 ],
-                "neo4j" : [
-                    "host" : "127.0.0.1",
-                    "port" : 123
-                ]
             ]
         ];
+        */
     }
 }

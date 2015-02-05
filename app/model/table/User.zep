@@ -26,12 +26,4 @@ use App\Table;
  */
 class User extends Table
 {
-	/**
-     * Initialize Table
-     *
-     */
-	public inline function initialize()
-    {
-    	parent::initialize();
-    }
 }

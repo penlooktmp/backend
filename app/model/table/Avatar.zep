@@ -26,5 +26,4 @@ use App\Table;
  */
 class Avatar extends Table
 {
-
 }

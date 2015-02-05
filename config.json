@@ -5,7 +5,7 @@
     },
     "warnings": {
         "unused-variable": true,
-        "unused-variable-external": false,
+        "unused-variable-external": true,
         "possible-wrong-parameter-undefined": false,
         "nonexistent-function": false,
         "nonexistent-class": false,
@@ -45,5 +45,5 @@
     "description": "Penlook Backend Extension",
     "author": "Penlook Development Team",
     "version": "0.0.1",
-    "verbose": false
+    "verbose": true
 }

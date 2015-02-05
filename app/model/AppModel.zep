@@ -149,8 +149,8 @@ class AppModel extends Model
      */
     public inline function rememberUser(int id, string signature)
     {
-        //$this->cookie('id', $id);
-        //$this->cookie('signature', $signature);
+        echo id;
+        echo signature;
     }
 
 	/**

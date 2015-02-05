@@ -25,12 +25,7 @@ use Phalcon\Mvc\Model as Phalcon_Model;
  * @since      Class available since Release 1.0
  */
 class Table extends Phalcon_Model
-
 {
-	/**
-     * Initialize Table
-     *
-     */
     public inline function initialize()
     {
         this->setConnectionService("mysql");
