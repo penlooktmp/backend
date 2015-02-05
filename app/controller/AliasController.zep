@@ -5,7 +5,9 @@
  *                    support@penlook.com
  *
  * Authors:
- *  Nam Vo <namvh@penlook.com>
+ *      Nam Vo      <namvh@penlook.com>
+ *      Loi Nguyen  <loint@penlook.com>
+ *      Tin Nguyen  <tinntt@penlook.com>
  *
  */
 
@@ -21,7 +23,6 @@ use App\Model\Collection\Status;
  *
  * @category   Penlook Application
  * @package    App\Controller
- * @author     Nam Vo <namvh@penlook.com>
  * @copyright  Penlook Development Team
  * @license    Commercial
  * @version    1.0
@@ -31,6 +32,11 @@ use App\Model\Collection\Status;
 class AliasController extends Controller
 {
 
+    /**
+     * Index Action
+     *
+     * @return IndexController forwarding
+     */
     public inline function indexAction()
     {
         var alias, model;
@@ -49,4 +55,5 @@ class AliasController extends Controller
              ]
         ]);
     }
+
 }

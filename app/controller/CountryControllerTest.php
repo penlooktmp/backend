@@ -1,3 +1,4 @@
+<?php
 /*
  * Copyright (C) 2014 Penlook
  *                    Vietnam
@@ -5,19 +6,16 @@
  *                    support@penlook.com
  *
  * Authors:
- *      Nam Vo      <namvh@penlook.com>
- *      Loi Nguyen  <loint@penlook.com>
- *      Tin Nguyen  <tinntt@penlook.com>
+ *  	Viet Nguyen <vietna@penlook.com>
+ *  	Loi Nguyen  <loint@penlook.com>
  *
  */
-
 namespace App\Controller;
 
-use Phalcon\Mvc\View;
-use App\Controller;
+use App\Test;
 
 /**
- * Country Controller
+ * Country Controller Test
  *
  * @category   Penlook Application
  * @package    App\Controller
@@ -27,7 +25,10 @@ use App\Controller;
  * @link       http://penlook.com
  * @since      Class available since Release 1.0
  */
-class CountryController extends Controller
+class CountryControllerTest extends Test
 {
+	public function testSample()
+	{
 
+	}
 }

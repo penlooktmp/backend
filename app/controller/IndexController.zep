@@ -5,7 +5,9 @@
  *                    support@penlook.com
  *
  * Authors:
- *  Loi Nguyen <loint@penlook.com>
+ *      Nam Vo      <namvh@penlook.com>
+ *      Loi Nguyen  <loint@penlook.com>
+ *      Tin Nguyen  <tinntt@penlook.com>
  *
  */
 namespace App\Controller;
@@ -27,7 +29,6 @@ use Phalcon\Mvc\View;
  *
  * @category   Penlook Application
  * @package    App\Controller
- * @author     Loi Nguyen <loint@penlook.com>
  * @copyright  Penlook Development Team
  * @license    Commercial
  * @version    1.0

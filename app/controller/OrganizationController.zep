@@ -5,7 +5,9 @@
  *                    support@penlook.com
  *
  * Authors:
- *  Nam Vo <namvh@penlook.com>
+ *      Nam Vo      <namvh@penlook.com>
+ *      Loi Nguyen  <loint@penlook.com>
+ *      Tin Nguyen  <tinntt@penlook.com>
  *
  */
 

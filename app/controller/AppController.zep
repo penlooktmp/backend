@@ -5,8 +5,9 @@
  *                    support@penlook.com
  *
  * Authors:
- *  Nam Vo <namvh@penlook.com>
- *
+ *      Nam Vo      <namvh@penlook.com>
+ *      Loi Nguyen  <loint@penlook.com>
+ *      Tin Nguyen  <tinntt@penlook.com>
  */
 
 namespace App\Controller;
@@ -35,15 +36,23 @@ use Phalcon\Mvc\View;
 class AppController extends Controller
 {
     /**
+     * App Model
      * @var AppModel
      */
     public app;
 
     /**
+     * Authentication
      * @var Auth
      */
      public auth;
 
+    /**
+     * Before Execute Event
+     * Initialize app model and authentication
+     *
+     * @return void
+     */
     public inline function beforeExecuteRoute()
     {
         let this->app = AppModel::getInstance();
@@ -51,13 +60,24 @@ class AppController extends Controller
     }
 
     /**
-     * @return Error Page 404
+     * Index action
+     * Index page is not available
+     *
+     * @router /app/
+     * @return error 404
      */
     public inline function indexAction()
     {
         return this->error(404);
     }
 
+    /**
+     * About action
+     * Introduce page
+     *
+     * @router /app/about
+     * @return void
+     */
     public inline function aboutAction()
     {
         var languages;
@@ -68,6 +88,13 @@ class AppController extends Controller
         this->ng("app");
     }
 
+    /**
+     * Developer action
+     * Page for developers
+     *
+     * @router /app/developer
+     * @return void
+     */
     public inline function developersAction()
     {
         var languages;
@@ -78,6 +105,13 @@ class AppController extends Controller
         this->ng("app");
     }
 
+    /**
+     * Volunteer action
+     * Page for Volunteers
+     *
+     * @router /app/volunteer
+     * @return void
+     */
     public inline function volunteersAction()
     {
         var languages;
