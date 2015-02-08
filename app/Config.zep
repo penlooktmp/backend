@@ -126,47 +126,49 @@ class Config
     public inline function config()
     {
 
-        return [
+        return
+        [
             "app" : [
                 "language" : "en_US"
-            ],
-            "path": [
-                "site" : [
-                    "root"   : "",
-                    "static" : ""
+                ],
+                "path": [
+                    "site" : [
+                        "root"   : "",
+                        "static" : ""
+                    ]
+                ],
+                "storage": [
+                    "app" : [
+                        "controller" : "app/controller",
+                        "model"      : "app/model",
+                        "view"       : "public/view",
+                        "cache"      : "tmp/cache",
+                        "storage"    : "tmp/storage"
+                    ],
+                    "cloud" : [
+                        "key" : "value"
+                    ],
+                    "mysql" : [
+                        "host" : "localhost",
+                        "port" : 3306,
+                        "username" : "root",
+                        "password" : "",
+                        "dbname" : "penlook"
+                    ],
+                    "mongo" : [
+                        "host" : "127.0.0.1",
+                        "port" : 27017,
+                        "username" : "admin",
+                        "password" : "",
+                        "dbname" : "penlook",
+                        "charset" : "utf8"
+                    ],
+                    "redis" : [
+                        "host" : "127.0.0.1",
+                        "port" : 6379
+                    ]
                 ]
-            ],
-            "storage": [
-                "app" : [
-                    "controller" : "app/controller",
-                    "model"      : "app/model",
-                    "view"       : "public/view",
-                    "cache"      : "tmp/cache",
-                    "storage"    : "tmp/storage"
-                ],
-                "cloud" : [
-                    "key" : "value"
-                ],
-                "mysql" : [
-                    "host" : "localhost",
-                    "port" : 3306,
-                    "username" : "root",
-                    "password" : "",
-                    "dbname" : "penlook"
-                ],
-                "mongo" : [
-                    "host" : "127.0.0.1",
-                    "port" : 27017,
-                    "username" : "admin",
-                    "password" : "",
-                    "dbname" : "penlook",
-                    "charset" : "utf8"
-                ],
-                "redis" : [
-                    "host" : "127.0.0.1",
-                    "port" : 6379
-                ],
-            ]
         ];
+
     }
 }
