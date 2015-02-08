@@ -126,7 +126,6 @@ class Config
     public inline function config()
     {
 
-        /*
         return [
             "app" : [
                 "language" : "en_US"
@@ -169,6 +168,5 @@ class Config
                 ],
             ]
         ];
-        */
     }
 }
