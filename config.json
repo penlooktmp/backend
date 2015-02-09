@@ -35,7 +35,7 @@
         "constant-folding": true,
         "static-constant-class-folding": true,
         "call-gatherer-pass": true,
-        "check-invalid-reads": false
+        "check-invalid-reads": true
     },
      "compiler_directives": {
         "extend_external" : true
