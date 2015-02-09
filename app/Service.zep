@@ -43,9 +43,9 @@ use Phalcon\Db\Adapter\Pdo\Mysql;
  * @category   Penlook Application
  * @package    App\Config
  * @copyright  Penlook Development Team
- * @license    Commercial
+ * @license    GNU Affero General Public
  * @version    1.0
- * @link       http://penlook.com
+ * @link       http://github.com/penlook
  * @since      Class available since Release 1.0
  */
 class Service

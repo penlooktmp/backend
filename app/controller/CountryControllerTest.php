@@ -35,9 +35,9 @@ use App\Test;
  * @category   Penlook Application
  * @package    App\Controller
  * @copyright  Penlook Development Team
- * @license    Commercial
+ * @license    GNU Affero General Public
  * @version    1.0
- * @link       http://penlook.com
+ * @link       http://github.com/penlook
  * @since      Class available since Release 1.0
  */
 class CountryControllerTest extends Test

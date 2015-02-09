@@ -32,11 +32,10 @@ namespace App\Service;
  *
  * @category   Penlook Application
  * @package    App\Service
- * @author     Loi Nguyen <loi@penlook.com>
  * @copyright  Penlook Development Team
- * @license    Commercial
+ * @license    GNU Affero General Public
  * @version    1.0
- * @link       http://penlook.com
+ * @link       http://github.com/penlook
  * @since      Class available since Release 1.0
  */
 class Sms
