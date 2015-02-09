@@ -80,7 +80,7 @@ class Service
      */
 	public inline static function getInstance()
     {
-        if (!self::static_service) {
+        if ! self::static_service {
             let self::static_service = new Service();
         }
 

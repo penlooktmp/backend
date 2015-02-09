@@ -46,7 +46,7 @@ class IndexTest extends Test
     public function testApplicationFlow()
     {
 
-        $closure = array(
+        /*$closure = array(
             'url'              => \App\Service::getUrl(),
             'path'             => \App\Service::getPath(),
             'config'           => \App\Service::getConfig(),
@@ -87,14 +87,15 @@ class IndexTest extends Test
         $service->set('mongo', function() {
             return \App\Service::getMongo();
         }, true);
-
+        
         (new App())
             ->setRoot(__DIR__)
             ->setMode(App::DEBUG)
             ->setService($service)
             ->run();
 
-        /*
+        
+
 
         new App()
     ->setRoot(__DIR__ . "/public")
@@ -103,6 +104,9 @@ class IndexTest extends Test
     ->setLanguage('en_US')
     ->setService()
     ->run();*/
+
+        $app = new App();
+        $app->test();
 
 
     }

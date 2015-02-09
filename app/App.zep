@@ -43,55 +43,130 @@ use Phalcon\Mvc\Application;
 class App
 {
 
+    /**
+     * Debug Mode
+     */
     const DEBUG    = 0;
+
+    /**
+     * Production mode
+     */
     const RELEASE  = 1;
+
+    /**
+     * Maintain mode
+     */
     const MAINTAIN = 2;
 
+    /**
+     * Configuration
+     *
+     * @var App\Config
+     */
     private config;
+
+    /**
+     * Service
+     *
+     * @var App\Service
+     */
     private service;
 
-    public session;
+    /**
+     * Temporary property
+     */
     public debug;
+
+    /**
+     * Mode
+     *
+     * @var int
+     */
     public mode;
 
+    /**
+     * Application Constructor
+     *
+     */
     public inline function __construct()
     {
         let this->config = Config::getInstance();
     }
 
+    /**
+     * Set mode
+     * Switch mode for application
+     *
+     * @param int mode
+     */
     public inline function setMode(mode)
     {
         let this->mode = mode;
         return this;
     }
 
+    /**
+     * Get mode
+     * Retrieve current mode of application
+     *
+     * @return int
+     */
     public inline function getMode()
     {
         return this->mode;
     }
 
+    /**
+     * Set service
+     * Assign all services to application
+     *
+     * @param App\Service service
+     * @return App\App
+     */
     public inline function setService(service)
     {
         let this->service = service;
         return this;
     }
 
+    /**
+     * Get service
+     * Retrieve current services of application
+     *
+     * @return App\Service
+     */
     public inline function getService()
     {
         return this->service;
     }
 
+    /**
+     * Set root
+     * Set current root path where application will be runned
+     *
+     * @param string root
+     * @return App\App
+     */
     public inline function setRoot(root)
     {
         this->config->setRoot(root);
         return this;
     }
 
+    /**
+     * Get rooot
+     *
+     * @return string
+     */
     public inline function getRoot()
     {
         return this->config->getRoot();
     }
 
+    /**
+     * Run application
+     *
+     */
     public inline function run()
     {
         var app, loader, service = "";
@@ -101,6 +176,17 @@ class App
 
         let app = new Application(service);
         echo app->handle()->getContent();
+    }
+
+    public inline function test()
+    {
+        var func;
+
+        let func = function(str1, str2) {
+            echo str1." ". str2;
+        };
+
+        call_user_func_array(func, ["Hello", "World"]);
     }
 
 }
