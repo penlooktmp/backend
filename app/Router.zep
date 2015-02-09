@@ -34,7 +34,6 @@ use Phalcon\Mvc\Router as Phalcon_Router;
  *
  * @category   Penlook Application
  * @package    App\Config
- * @author     Loi Nguyen <loint@penlook.com>
  * @copyright  Penlook Development Team
  * @license    Commercial
  * @version    1.0

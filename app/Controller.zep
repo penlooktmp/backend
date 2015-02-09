@@ -36,7 +36,6 @@ use App\Module\Auth;
  *
  * @category   Penlook Application
  * @package    App\Controller
- * @author     Tin Nguyen <loint@penlook.com>
  * @copyright  Penlook Development Team
  * @license    Commercial
  * @version    1.0

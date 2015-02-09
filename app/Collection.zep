@@ -34,7 +34,6 @@ use Phalcon\Mvc\Collection as Phalcon_Collection;
  *
  * @category   Penlook Application
  * @package    App\Collection
- * @author     Loi Nguyen <loint@penlook.com>
  * @copyright  Penlook Development Team
  * @license    Commercial
  * @version    1.0

@@ -34,7 +34,6 @@ use App\Service;
  *
  * @category   Penlook Application
  * @package    App\Model
- * @author     Tin Nguyen <tinntt@penlook.com>
  * @copyright  Penlook Development Team
  * @license    Commercial
  * @version    1.0

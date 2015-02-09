@@ -34,7 +34,6 @@ use Phalcon\Loader as Phalcon_Loader;
  *
  * @category   Penlook Application
  * @package    App\Config
- * @author     Loi Nguyen <loint@penlook.com>
  * @copyright  Penlook Development Team
  * @license    Commercial
  * @version    1.0
