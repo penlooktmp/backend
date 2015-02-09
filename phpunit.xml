@@ -14,8 +14,9 @@
     <testsuites>
         <testsuite name="Penlook-Backend">
             <directory></directory>
-            <file>app/ConfigTest.php</file>
-            <file>app/IndexTest.php</file>
+            <file>/app/ConfigTest.php</file>
+            <file>/app/IndexTest.php</file>
+            <file>app/ServiceTest.php</file>
         </testsuite>
 
     </testsuites>

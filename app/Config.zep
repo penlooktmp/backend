@@ -80,6 +80,7 @@ class Config
      */
 	public inline static function getInstance()
     {
+
         if ! self::static_config {
             let self::static_config = new Config();
         }
@@ -105,7 +106,7 @@ class Config
         */
 
         let this->config =  new Phalcon_Config([
-                                    "app" : config["structure"]
+                                "app" : config["structure"]
                             ]);
 
         return this;
@@ -119,6 +120,10 @@ class Config
      */
     public inline function getConfig()
     {
+        if ! this->root {
+            die("Application root was not defined !");
+        }
+
     	return this->config;
     }
 

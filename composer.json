@@ -9,7 +9,7 @@
         "phpunit/phpunit": "4.4.*",
         "phalcon/incubator": "dev-master"
     },
-    "license": "MIT",
+    "license": "GNU Affero General Public License",
     "authors": [
         {
             "name": "Penlook Development Team",

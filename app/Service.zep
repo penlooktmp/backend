@@ -147,10 +147,17 @@ class Service
      */
     public inline static function getView()
     {
-        var view, config;
-        let config = self::getConfig()->storage->app;
+        var config, view;
+        let config = self::getConfig()->app;
+
         let view = new View();
-        view->setViewsDir(config->view);
+
+        view->setViewsDir(config->view)
+            ->registerEngines([
+                ".volt" : function(view, service) {
+                    return Service::getVolt(view, service);
+                }
+            ]);
 
         return view;
     }
@@ -162,25 +169,16 @@ class Service
      */
     public inline static function getVolt(view, di)
     {
-        var volt, path, compiler;
-        //let path   = Path::getInstance();
+        var volt, config, compiler;
+
+        let config = self::getConfig()->path;
         let volt   = new VoltEngine(view, di);
 
         volt->setOptions([
-            "compiledPath"      : "/",
-            "compiledSeparator" : "_",
-            "compileAlways"     : true
-        ]);
-
-        /*
-        var funcs;
-        let funcs = [
-            "trans",
-            "site",
-            "json",
-            "img"
-        ];
-        */
+                "compiledPath" : config->cache,
+                "compiledSeparator" : "_",
+                "compileAlways" : true
+            ]);
 
         let compiler = volt->getCompiler();
         self::setCompiler(compiler);

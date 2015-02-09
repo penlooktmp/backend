@@ -42,26 +42,34 @@ use App\Storage;
  */
 class StorageTest extends Test
 {
-    private $storage;
+    private $service;
 
     public function __construct()
     {
-        $this->storage = Storage::getInstance();
+        $this->service = Service::getInstance();
     }
 
     public function testGetInstance()
     {
-        $input = $this->storage;
-        $expect = $this->storage;
-        $output = Storage::getInstance();
+        $input = $this->service;
+        $expect = $this->service;
+        $output = Service::getInstance();
         $this->assertEquals($output, $expect);
     }
 
     public function testGetStorage()
     {
-        $input = $this->storage;
-        $expect = NULL;
-        $output = $this->storage->getStorage();
-        $this->assertEquals($output, $expect);
+        //$input = $this->storage;
+        //$expect = NULL;
+       // $output = $this->storage->getStorage();
+        //$this->assertEquals($output, $expect);
+    }
+
+    public function testGetView()
+    {
+        Config::getInstance()
+              ->setRoot(__DIR__)
+              ->initialize();
+        $this->service->getView();
     }
 }
