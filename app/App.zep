@@ -73,6 +73,20 @@ class App
     private service;
 
     /**
+     * Loader
+     *
+     * @var App\Loader
+     */
+    private loader;
+
+    /**
+     * Service
+     *
+     * @var Phalcon\Mvc\Application
+     */
+    private application;
+
+    /**
      * Temporary property
      */
     public debug;
@@ -117,27 +131,81 @@ class App
     }
 
     /**
-     * Set service
-     * Assign all services to application
+     * Get service
+     * Retrieve current service container
      *
-     * @param App\Service service
+     * @return Phalcon\DI\FactoryDefault
+     */
+    public inline function getService()
+    {
+        return Service::getInstance()->getService();
+    }
+
+    /**
+     * Set multiple services
+     *
      * @return App\App
      */
-    public inline function setService(service)
+    public inline function setServices(callback)
     {
-        let this->service = service;
+        call_user_func_array(callback, [ this->getListServices() ]);
         return this;
     }
 
     /**
-     * Get service
-     * Retrieve current services of application
+     * Set single service
      *
-     * @return App\Service
+     * @return App\App
      */
-    public inline function getService()
+    public inline function setService(name, closure)
     {
-        return this->service;
+        this->getService()->set(name, closure);
+        return this;
+    }
+
+    /**
+     * Get list services
+     * Retrieve all service are already registered
+     *
+     * @return array
+     */
+    public inline function getListServices()
+    {
+        return [
+            "url"               : Service::getUrl(),
+            "path"              : Service::getPath(),
+            "config"            : Service::getConfig(),
+            "router"            : Service::getRouter(),
+            "session"           : Service::getSession(),
+            "cookie"            : Service::getCookie(),
+            "crypt"             : Service::getCrypt(),
+            "redis"             : Service::getRedis(),
+            "mysql"             : Service::getMySQL(),
+            "view"              : Service::getView()
+            //"mongo"             : Service::getMongoDB(),
+            //"collectionManager" : Service::getCollectionManager()
+        ];
+    }
+
+    /**
+     * Get loader
+     * Retrieve application loader
+     *
+     * @return App\Loader
+     */
+    public inline function getLoader()
+    {
+        return this->loader;
+    }
+
+    /**
+     * Get application
+     *
+     * @return Phalcon\Mvc\Application
+     */
+    public inline function getApplication()
+    {
+        return this->application;
     }
 
     /**
@@ -169,13 +237,11 @@ class App
      */
     public inline function run()
     {
-        var app, loader, service = "";
+        let this->loader = new Loader();
+        this->loader->registerNamespaces();
 
-        let loader = new Loader();
-        loader->registerNamespaces();
-
-        let app = new Application(service);
-        echo app->handle()->getContent();
+        let this->application = new Application(this->service);
+        echo this->application->handle()->getContent();
     }
 
     public inline function test()

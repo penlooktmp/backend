@@ -45,6 +45,16 @@ class IndexTest extends Test
      */
     public function testApplicationFlow()
     {
+        $app = new App();
+        $app ->setRoot(__DIR__)
+             ->setMode(App::DEBUG)
+             ->setServices(function($services) use ($app) {
+                foreach ($services as $name => $instance) {
+                    $app->setService($name, function() use ($instance) {
+                        return $instance;
+                    });
+                }
+             });
 
         /*$closure = array(
             'url'              => \App\Service::getUrl(),

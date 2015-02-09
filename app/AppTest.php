@@ -45,48 +45,26 @@ class AppTest extends Test
 
     public function __construct()
     {
-        $this->app = App::getInstance();
+        $this->app = new App();
     }
 
-    public function testGetInstance()
+    public function testSetGetMode()
     {
-        $input = $this->app;
-        $expect = $this->app;
-        $output = App::getInstance();
-        $this->assertEquals($output, $expect);
+        $this->app->setMode(App::DEBUG);
+        $this->assertEquals($this->app->getMode(), 0);
+
+        $this->app->setMode(App::RELEASE);
+        $this->assertEquals($this->app->getMode(), 1);
+
+        $this->app->setMode(App::MAINTAIN);
+        $this->assertEquals($this->app->getMode(), 2);
     }
 
-    public function testStart()
+    public function testGetListServices()
     {
-        //Not yet handled
+        $services = $this->app->getListServices();
+        $this->assertNotEmpty($services);
+        $this->assertEquals(10, count($services));
     }
 
-    public function testEnd()
-    {
-        //Not yet handled
-    }
-
-    public function testSetMode()
-    {
-        $input = false;
-        $expect = NULL;
-        $output = $this->app->setMode($input);
-        $this->assertEquals($output, $expect);
-    }
-
-    public function testGet()
-    {
-        $input = "viet";
-        $expect = NULL;
-        $output = $this->app->setMode($input);
-        $this->assertEquals($output, $expect);
-    }
-
-    public function testSet()
-    {
-        $input = "viet";
-        $expect = NULL;
-        $output = $this->app->setMode($input);
-        $this->assertEquals($output, $expect);
-    }
 }

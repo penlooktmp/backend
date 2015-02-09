@@ -114,7 +114,7 @@ class Service
      */
     public inline static function getPath()
     {
-        //return Path::getInstance();
+        // NEED TO DELETE
     }
 
     /**
@@ -135,8 +135,10 @@ class Service
     public inline static function getUrl()
     {
         var url;
+
         let url = new UrlResolver();
         url->setBaseUri("/");
+
         return url;
     }
 
@@ -147,12 +149,10 @@ class Service
      */
     public inline static function getView()
     {
-        var config, view;
-        let config = self::getConfig()->app;
-
+        var view;
         let view = new View();
 
-        view->setViewsDir(config->view)
+        view->setViewsDir(self::getConfig()->app->view)
             ->registerEngines([
                 ".volt" : function(view, service) {
                     return Service::getVolt(view, service);
@@ -169,19 +169,16 @@ class Service
      */
     public inline static function getVolt(view, di)
     {
-        var volt, config, compiler;
-
-        let config = self::getConfig()->path;
-        let volt   = new VoltEngine(view, di);
+        var volt;
+        let volt = new VoltEngine(view, di);
 
         volt->setOptions([
-                "compiledPath" : config->cache,
+                "compiledPath" : self::getConfig()->path->cache,
                 "compiledSeparator" : "_",
                 "compileAlways" : true
             ]);
 
-        let compiler = volt->getCompiler();
-        self::setCompiler(compiler);
+        self::setCompiler(volt->getCompiler());
 
         return volt;
     }
@@ -252,26 +249,24 @@ class Service
     /**
      * Get MySQL service
      *
-     * @return Phalcon\Mvc\View
+     * @return Phalcon\Db\Adapter\Pdo\Mysql
      */
-    public inline static function getMysql()
+    public inline static function getMySQL()
     {
-        var mysql, config;
-        let config = self::getConfig()->storage->mysql;
+        var mysql;
+        let mysql = self::getConfig()->database->mysql;
 
-        let mysql = new Mysql([
-            "host"    : config->host,
-            "port"    : config->port,
-            "username": config->username,
-            "password": config->password,
-            "dbname"  : config->dbname,
+        return new Mysql([
+            "host"    : mysql->host,
+            "port"    : mysql->port,
+            "username": mysql->username,
+            "password": mysql->password,
+            "dbname"  : mysql->dbname,
             "options" : [
                 // PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
-                1002 : "SET NAMES utf8"
+                1002 : "SET NAMES " . mysql->charset
             ]
         ]);
-
-        return mysql;
     }
 
     /**
@@ -279,19 +274,28 @@ class Service
      *
      * @return \MongoClient
      */
-    public inline static function getMongo()
+    public inline static function getMongoDB()
     {
-        var host, port, username, password, dbname, mongo, config;
-        let config = self::getConfig()->storage->mongo;
+        var mongo;
+        let mongo = self::getConfig()->database->mongo;
 
-        let host     = config->host;
-        let port     = config->port;
-        let username = config->username;
-        let password = config->password;
-        let dbname   = config->dbname;
+        if mongo->password {
+            let mongo->password = ":" . mongo->password;
+        }
 
-        let mongo = new \MongoClient("mongodb://". username .":". password ."@". host. ":". port."\"");
-        return mongo->selectDB(dbname);
+        if mongo->port {
+            let mongo->port = ":" . mongo->port;
+        }
+
+        if mongo->dbname {
+            let mongo->dbname = "/" . mongo->dbname;
+        }
+
+        // TODO
+        // Add username and password to Mongo URI
+        return new \MongoClient(
+                        "mongodb://" . mongo->host . mongo->port . mongo->dbname
+                    );
     }
 
     /**

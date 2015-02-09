@@ -27,10 +27,8 @@
 
 namespace App;
 
-use App\Storage;
-
 /**
- * Storage Test
+ * Service Test
  *
  * @category   Penlook Application
  * @package    App
@@ -40,13 +38,16 @@ use App\Storage;
  * @link       http://github.com/penlook
  * @since      Class available since Release 1.0
  */
-class StorageTest extends Test
+class ServiceTest extends Test
 {
     private $service;
 
     public function __construct()
     {
         $this->service = Service::getInstance();
+        Config::getInstance()
+              ->setRoot(__DIR__)
+              ->initialize();
     }
 
     public function testGetInstance()
@@ -57,19 +58,22 @@ class StorageTest extends Test
         $this->assertEquals($output, $expect);
     }
 
-    public function testGetStorage()
-    {
-        //$input = $this->storage;
-        //$expect = NULL;
-       // $output = $this->storage->getStorage();
-        //$this->assertEquals($output, $expect);
-    }
-
     public function testGetView()
     {
-        Config::getInstance()
-              ->setRoot(__DIR__)
-              ->initialize();
-        $this->service->getView();
+        $view = $this->service->getView();
+        $this->assertInstanceOf("Phalcon\Mvc\View", $view);
+    }
+
+    public function testGetMysql()
+    {
+        $mysql = $this->service->getMySQL();
+        $this->assertInstanceOf("Phalcon\Db\Adapter\Pdo\Mysql", $mysql);
+    }
+
+    public function testGetMongo()
+    {
+        //$mongo = $this->service->getMongoDB();
+        //$this->assertInstanceOf("MongoClient", $mongo);
+        //$mongo->close();
     }
 }

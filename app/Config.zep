@@ -94,9 +94,6 @@ class Config
      */
     public function initialize()
     {
-        var config;
-
-        let config = this->getRawConfig();
 
         /*let raw_config = config["storage"];
         let storage = this->configurePath(raw_config, path->root);
@@ -105,9 +102,7 @@ class Config
         let this->path = raw_path;
         */
 
-        let this->config =  new Phalcon_Config([
-                                "app" : config["structure"]
-                            ]);
+        let this->config =  new Phalcon_Config(this->getRawConfig());
 
         return this;
     }
@@ -169,7 +164,8 @@ class Config
     {
         return [
             "language"  : "en_US",
-            "structure" : this->get("phalcon.yml", "structure"),
+            "app" : this->get("backend.yml", "app"),
+            "path" : this->get("backend.yml", "path"),
             "database"  : [
                 "mysql" : this->get("mysql.yml",  "mysql"),
                 "mongo" : this->get("mongo.yml",  "mongo")
