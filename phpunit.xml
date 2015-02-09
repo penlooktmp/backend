@@ -9,11 +9,13 @@
     convertNoticesToExceptions="true"
     convertWarningsToExceptions="true"
     processIsolation="false"
-    stopOnFailure="false"
+    stopOnFailure="true"
     syntaxCheck="true">
     <testsuites>
         <testsuite name="Penlook-Backend">
-            <directory>app</directory>
+            <directory></directory>
+            <file>app/ConfigTest.php</file>
+            <file>app/IndexTest.php</file>
         </testsuite>
 
     </testsuites>

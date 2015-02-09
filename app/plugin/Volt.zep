@@ -54,7 +54,8 @@ class Volt extends VoltEngine
     {
         var cache, cache_file,template_name;
 
-        let cache = \App\Path::getInstance()->cache;
+        //let cache = \App\Path::getInstance()->cache;
+        let cache = "public/cache";
         let template_name = str_replace("/", "_", templatePath);
         let cache_file = cache . "/min" . template_name . ".php";
 
@@ -65,7 +66,7 @@ class Volt extends VoltEngine
         }
 
         var app;
-        let app = \App\App::getInstance();
+        let app = new App();
 
         if app->debug {
             var template, template_file;

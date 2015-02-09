@@ -51,6 +51,13 @@ class Config
     public config;
 
     /**
+     * Application root
+     *
+     * @var string
+     */
+    public root;
+
+    /**
      * Config Instance
      *
      * @var App\Config
@@ -58,42 +65,13 @@ class Config
 	private static static_config;
 
     /**
-     * Path
-     *
-     * @var App\Path
-     */
-    public path;
-
-    /**
-     * Constructor
+     * Config constructor
      *
      */
-    private function __construct()
-	{
-		var path, raw_config, raw_path, config, storage;
-		let path = Path::getInstance();
-
-		// Resolve storage file location
-        let this->path = path;
-        let config = this->config();
-
-        let raw_config = config["storage"];
-        let storage = this->configurePath(raw_config, path->root);
-
-        let raw_path = config["path"];
-        let this->path = raw_path;
-
-        var configs;
-
-        let configs = [
-            "app" : config["app"],
-            "path" : config["path"],
-            "storage" : storage
-        ];
-
-		// Convert array to object
-		let this->config = new Phalcon_Config(configs);
-	}
+    private inline function __construct()
+    {
+        // Override constructor
+    }
 
     /**
      * Get an instance
@@ -102,12 +80,37 @@ class Config
      */
 	public inline static function getInstance()
     {
-        if (!self::static_config) {
+        if ! self::static_config {
             let self::static_config = new Config();
         }
 
         return self::static_config;
     }
+
+    /**
+     * Constructor
+     *
+     */
+    public function initialize()
+    {
+        var config;
+
+        let config = this->getRawConfig();
+
+        /*let raw_config = config["storage"];
+        let storage = this->configurePath(raw_config, path->root);
+
+        let raw_path = config["path"];
+        let this->path = raw_path;
+        */
+
+        let this->config =  new Phalcon_Config([
+                                    "app" : config["structure"]
+                            ]);
+
+        return this;
+    }
+
 
     /**
      * Get configuration
@@ -137,52 +140,64 @@ class Config
     	return raw_config;
     }
 
-    public inline function config()
+    /**
+     * Get config by key
+     *
+     * @param  string name Config file name
+     * @param  string config_name Config services in file name
+     * @return string
+     */
+    public inline function get(name, config_name)
     {
-
-        return
-        [
-            "app" : [
-                "language" : "en_US"
-                ],
-                "path": [
-                    "site" : [
-                        "root"   : "",
-                        "static" : ""
-                    ]
-                ],
-                "storage": [
-                    "app" : [
-                        "controller" : "app/controller",
-                        "model"      : "app/model",
-                        "view"       : "public/view",
-                        "cache"      : "tmp/cache",
-                        "storage"    : "tmp/storage"
-                    ],
-                    "cloud" : [
-                        "key" : "value"
-                    ],
-                    "mysql" : [
-                        "host" : "localhost",
-                        "port" : 3306,
-                        "username" : "root",
-                        "password" : "",
-                        "dbname" : "penlook"
-                    ],
-                    "mongo" : [
-                        "host" : "127.0.0.1",
-                        "port" : 27017,
-                        "username" : "admin",
-                        "password" : "",
-                        "dbname" : "penlook",
-                        "charset" : "utf8"
-                    ],
-                    "redis" : [
-                        "host" : "127.0.0.1",
-                        "port" : 6379
-                    ]
-                ]
-        ];
-
+        var redis, value = [];
+        let redis = Service::getInstance()->getRedis();
+        let value = json_decode(redis->get(name), true);
+        return value[config_name];
     }
+
+    /**
+     * Configuration
+     *
+     * @return array
+     */
+    public inline function getRawConfig()
+    {
+        return [
+            "language"  : "en_US",
+            "structure" : this->get("phalcon.yml", "structure"),
+            "database"  : [
+                "mysql" : this->get("mysql.yml",  "mysql"),
+                "mongo" : this->get("mongo.yml",  "mongo")
+            ]
+        ];
+    }
+
+    /**
+     * Set application root
+     *
+     * @param string root application root
+     */
+    public inline function setRoot(root)
+    {
+        var path;
+        let path = realpath(root);
+
+        if ! path {
+            die("Application Path does not exist !");
+        }
+
+        let this->root = path;
+        return this;
+    }
+
+    /**
+     * Get application root
+     *
+     * @return string
+     */
+    public inline function getRoot()
+    {
+        return this->root;
+    }
+
 }

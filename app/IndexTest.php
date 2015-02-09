@@ -27,10 +27,8 @@
 
 namespace App;
 
-use App\Path;
-
 /**
- * Path Test
+ * Loader Test
  *
  * @category   Penlook Application
  * @package    App
@@ -40,28 +38,73 @@ use App\Path;
  * @link       http://github.com/penlook
  * @since      Class available since Release 1.0
  */
-class PathTest extends Test
+class IndexTest extends Test
 {
-    protected $path;
-
-    public function __construct()
+    /**
+     * Test Application Flow
+     */
+    public function testApplicationFlow()
     {
-        $this->path = Path::getInstance();
+
+        $closure = array(
+            'url'              => \App\Service::getUrl(),
+            'path'             => \App\Service::getPath(),
+            'config'           => \App\Service::getConfig(),
+            'router'           => \App\Service::getRouter(),
+            'session'          => \App\Service::getSession(),
+            'cookie'           => \App\Service::getCookie(),
+            'crypt'            => \App\Service::getCrypt(),
+            'storage'          => \App\Service::getStorage(),
+            'redis'            => \App\Service::getRedis(),
+            'view'             => \App\Service::getView(),
+            'collectionManager'=> \App\Service::getCollectionManager()
+        );
+
+        $service = \App\Service::getInstance()->getService();
+
+        foreach ($closure as $key => $value) {
+            $service->set($key, function() use ($value) {
+                return $value;
+            });
+        }
+
+        $service->set('view', function() use ($closure, $service) {
+            $view = $closure["view"];
+
+            $view->registerEngines(array(
+                '.volt' => function($view, $service) {
+                    return \App\Service::getVolt($view, $service);
+                }
+            ));
+
+            return $view;
+        } , true);
+
+        $service->set('mysql', function() {
+            return \App\Service::getMysql();
+        }, true);
+
+        $service->set('mongo', function() {
+            return \App\Service::getMongo();
+        }, true);
+
+        (new App())
+            ->setRoot(__DIR__)
+            ->setMode(App::DEBUG)
+            ->setService($service)
+            ->run();
+
+        /*
+
+        new App()
+    ->setRoot(__DIR__ . "/public")
+    ->setMode(App::Default)
+    ->setPublic(false)
+    ->setLanguage('en_US')
+    ->setService()
+    ->run();*/
+
+
     }
 
-    public function testGetInstance()
-    {
-        $input = $this->path;
-        $expect = $this->path;
-        $output = Path::getInstance();
-        $this->assertEquals($output, $expect);
-    }
-
-    public function testConfig()
-    {
-        $input = "config";
-        $expect = $this->path->config ."/config.yaml";
-        $output = $this->path->config($input);
-        $this->assertEquals($output, $expect);
-    }
 }

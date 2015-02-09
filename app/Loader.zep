@@ -51,37 +51,13 @@ class Loader
 	public loader;
 
     /**
-     * Loader Instance
-     *
-     * @var Phalcon\Loader
-     */
-	private static static_loader;
-
-    /**
      * Constructor
      *
      */
     private function __construct()
 	{
         let this->loader = new Phalcon_Loader();
-
-        // Register for namespaces
-        this->registerNamespaces();
 	}
-
-    /**
-     * Get loader instance
-     *
-     * @var App\Loader
-     */
-	public inline static function getInstance()
-    {
-        if (!self::static_loader) {
-            let self::static_loader = new Loader();
-        }
-
-        return self::static_loader;
-    }
 
     /**
      * Get additional namespaces
@@ -115,7 +91,7 @@ class Loader
      */
     public inline function getLoader()
     {
-    	return this->loader->register();
+    	return this->loader;
     }
 
 }

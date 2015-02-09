@@ -68,56 +68,16 @@ class ConfigTest extends Test
         // Unknown
     }
 
-    public function testConfig()
+    public function testRawConfig()
     {
-        // $input = $this->config;
-        // $expect = [
-        //     "app" : [
-        //         "language" : "en_US"
-        //     ],
-        //     "path": [
-        //         "site" : [
-        //             "root"   : "",
-        //             "static" : ""
-        //         ]
-        //     ],
-        //     "storage": [
-        //         "app" : [
-        //             "controller" : "app/controller",
-        //             "model"      : "app/model",
-        //             "view"       : "public/view",
-        //             "cache"      : "tmp/cache",
-        //             "storage"    : "tmp/storage"
-        //         ],
-        //         "cloud" : [
-        //             "key" : "value"
-        //         ],
-        //         "mysql" : [
-        //             "host" : "localhost",
-        //             "port" : 3306,
-        //             "username" : "root",
-        //             "password" : "",
-        //             "dbname" : "penlook"
-        //         ],
-        //         "mongo" : [
-        //             "host" : "127.0.0.1",
-        //             "port" : 27017,
-        //             "username" : "admin",
-        //             "password" : "",
-        //             "dbname" : "penlook",
-        //             "charset" : "utf8"
-        //         ],
-        //         "redis" : [
-        //             "host" : "127.0.0.1",
-        //             "port" : 6379
-        //         ],
-        //         "neo4j" : [
-        //             "host" : "127.0.0.1",
-        //             "port" : 123
-        //         ]
-        //     ]
-        // ];
-        // $output = $this->config->config();
-        // $this->assertEquals($output, $expect);
+        $config = $this->config->getRawConfig();
+        $this->assertEquals($config["language"], "en_US");
+        $this->assertNotEmpty($config["structure"]);
+    }
+
+    public function testRoot()
+    {
+        $this->config->setRoot(__DIR__);
+        $this->assertEquals(realpath(__DIR__), $this->config->getRoot());
     }
 }

@@ -410,7 +410,7 @@ class Controller extends Phalcon_Controller
     public inline function dev()
     {
         var app;
-        let app = \App\App::getInstance();
+        let app = new App();
 
         if app->debug {
             return true;
@@ -657,6 +657,6 @@ class Controller extends Phalcon_Controller
 
     public function renderTemplate(folder, file)
     {
-        return file_get_contents(\App\Path::getInstance(null)->web . "/../app/view/" . folder . "/" . file . ".volt");
+        //return file_get_contents(\App\Path::getInstance(null)->web . "/../app/view/" . folder . "/" . file . ".volt");
     }
 }

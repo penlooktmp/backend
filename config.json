@@ -35,7 +35,10 @@
         "constant-folding": true,
         "static-constant-class-folding": true,
         "call-gatherer-pass": true,
-        "check-invalid-reads": true
+        "check-invalid-reads": true,
+        "private-internal-methods": false,
+        "public-internal-methods": false,
+        "public-internal-functions": true
     },
      "compiler_directives": {
         "extend_external" : true

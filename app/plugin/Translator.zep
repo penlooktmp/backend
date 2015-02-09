@@ -61,12 +61,12 @@ class Translator
      */
     private inline function __construct(language)
 	{
-        var path;
-        let path = \App\Path::getInstance();
+        //var path;
+        //let path = \App\Path::getInstance();
         let this->translator = new Phalcon_Translator([
                                    "locale": language . ".utf8",
                                    "defaultDomain": "message",
-                                   "directory" : path->root . "/public/lang"
+                                   "directory" : "/public/lang"
                                ]);
 	}
 

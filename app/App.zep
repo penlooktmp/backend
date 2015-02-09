@@ -27,6 +27,8 @@
 
 namespace App;
 
+use Phalcon\Mvc\Application;
+
 /**
  * App Configuration
  *
@@ -40,84 +42,65 @@ namespace App;
  */
 class App
 {
-    /**
-     * App Instance
-     */
-    private static static_app;
 
-    /**
-     * Session storage
-     */
-    private session;
+    const DEBUG    = 0;
+    const RELEASE  = 1;
+    const MAINTAIN = 2;
 
-    /**
-     * During run time
-     */
-    private during;
+    private config;
+    private service;
 
-    /**
-     * Debug mode
-     */
+    public session;
     public debug;
+    public mode;
 
-    /**
-     * Constructor
-     *
-     */
-    private function __construct()
-	{
-        let this->session = Service::getSession();
-	}
-
-    /**
-     * Get an instance
-     *
-     * @return App\Config
-     */
-	public inline static function getInstance()
+    public inline function __construct()
     {
-        if (!self::static_app) {
-            let self::static_app = new App();
-        }
-
-        return self::static_app;
+        let this->config = Config::getInstance();
     }
 
-    public inline function setMode(production = false)
+    public inline function setMode(mode)
     {
-        let this->debug = false;
-
-        if ! production {
-            error_reporting(E_ALL);
-            ini_set("display_errors", 1);
-            let this->debug = true;
-        }
+        let this->mode = mode;
+        return this;
     }
 
-    public inline function get(name)
+    public inline function getMode()
     {
-        var str;
-        let str = this->session->get(name);
-
-        if is_null(str) {
-            var redis;
-            let redis = Service::getRedis();
-            let str = redis->get(name);
-
-            if str {
-                this->session->set(name, str);
-            }
-        }
-
-        return str ? igbinary_unserialize(str) : false;
+        return this->mode;
     }
 
-    public inline function set(name, service)
+    public inline function setService(service)
     {
-        var str, redis;
-        let str = igbinary_serialize(service);
-        let redis = Service::getRedis();
-        redis->set(name, str);
-        this->session->set(name, str);
+        let this->service = service;
+        return this;
     }
+
+    public inline function getService()
+    {
+        return this->service;
+    }
+
+    public inline function setRoot(root)
+    {
+        this->config->setRoot(root);
+        return this;
+    }
+
+    public inline function getRoot()
+    {
+        return this->config->getRoot();
+    }
+
+    public inline function run()
+    {
+        var app, loader, service = "";
+
+        let loader = new Loader();
+        loader->registerNamespaces();
+
+        let app = new Application(service);
+        echo app->handle()->getContent();
+    }
+
 }

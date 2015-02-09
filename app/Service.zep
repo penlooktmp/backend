@@ -114,7 +114,7 @@ class Service
      */
     public inline static function getPath()
     {
-        return Path::getInstance();
+        //return Path::getInstance();
     }
 
     /**
@@ -163,11 +163,11 @@ class Service
     public inline static function getVolt(view, di)
     {
         var volt, path, compiler;
-        let path   = Path::getInstance();
+        //let path   = Path::getInstance();
         let volt   = new VoltEngine(view, di);
 
         volt->setOptions([
-            "compiledPath"      : path->cache . "/",
+            "compiledPath"      : "/",
             "compiledSeparator" : "_",
             "compileAlways"     : true
         ]);
@@ -314,9 +314,8 @@ class Service
     public inline static function getRedis()
     {
         var redis, config;
-        let config = self::getConfig()->storage->redis;
         let redis = new \Redis();
-        redis->connect(config->host, config->port);
+        redis->connect("localhost", 6379);
         return redis;
     }
 }
