@@ -1,4 +1,3 @@
-<?php
 /*
  +--------------------------------------------------------------------------+
  | Penlook Project                                                          |
@@ -21,40 +20,25 @@
  |                                                                          |
  +--------------------------------------------------------------------------+
  |   Authors: Loi Nguyen  <loint@penlook.com>                               |
- |            Viet Nguyen <vietna@penlook.com>                              |
+ |            Tin Nguyen  <tinntt@penlook.com>                              |
+ |            Nam Vo      <namvh@penlook.com>                               |
  +--------------------------------------------------------------------------+
 */
 
 namespace App;
 
 /**
- * Loader Test
+ * Application Loader
  *
  * @category   Penlook Application
- * @package    App
+ * @package    App\Config
  * @copyright  Penlook Development Team
  * @license    GNU Affero General Public
  * @version    1.0
  * @link       http://github.com/penlook
  * @since      Class available since Release 1.0
  */
-class IndexTest extends Test
+class Flow
 {
-    /**
-     * Test Application Flow
-     */
-    public function testApplicationFlow()
-    {
-        $app = new App();
-        $app ->setMode(App::DEBUG)
-             ->setRoot(__DIR__)
-             ->setServices(function($services) use ($app) {
-                foreach ($services as $name => $instance) {
-                    $app->setService($name, function() use ($instance) {
-                        return $instance;
-                    });
-                }
-             });
-    }
 
 }

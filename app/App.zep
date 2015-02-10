@@ -80,6 +80,13 @@ class App
     private loader;
 
     /**
+     * Session
+     *
+     * @var Phalcon\Session\Adapter\Files
+     */
+    private session;
+
+    /**
      * Service
      *
      * @var Phalcon\Mvc\Application
@@ -129,8 +136,66 @@ class App
     public inline function __construct()
     {
         let this->start   =  microtime(true);
-        let this->config  =  Config ::getInstance();
-        let this->service =  Service::getInstance();
+    }
+
+    /**
+     * Initialize application
+     *
+     * @return App\App
+     */
+    public inline function initialize()
+    {
+        let this->config  = Config ::getInstance();
+        let this->service = Service::getInstance();
+        let this->session = Service::getSession();
+
+        switch this->mode {
+            case self::DEBUG:
+                    this->setupDebug();
+                break;
+            case self::RELEASE:
+                    this->setupRelease();
+                break;
+            case self::MAINTAIN:
+                    this->setupMaintain();
+                break;
+            default:
+                break;
+        }
+
+        return this;
+    }
+
+    /**
+     * Setup for development mode
+     *
+     */
+    public inline function setupDebug()
+    {
+        this->session->set("mode", App::DEBUG);
+        error_reporting(E_ALL);
+        ini_set("display_errors", true);
+    }
+
+    /**
+     * Setup for production mode
+     *
+     */
+    public inline function setupRelease()
+    {
+        this->session->set("mode", App::RELEASE);
+        error_reporting(0);
+        ini_set("display_errors", false);
+    }
+
+    /**
+     * Setup for maintain mode
+     *
+     */
+    public inline function setupMaintain()
+    {
+        this->session->set("mode", App::MAINTAIN);
+        // TODO
     }
 
     public inline function setLogger(logger)
@@ -153,6 +218,10 @@ class App
     public inline function setMode(mode)
     {
         let this->mode = mode;
+
+        // Initialize application by mode
+        this->initialize();
+
         return this;
     }
 
@@ -211,17 +280,16 @@ class App
     {
         return [
             "url"               : Service::getUrl(),
-            "path"              : Service::getPath(),
             "config"            : Service::getConfig(),
             "router"            : Service::getRouter(),
-            "session"           : Service::getSession(),
             "cookie"            : Service::getCookie(),
             "crypt"             : Service::getCrypt(),
             "redis"             : Service::getRedis(),
+            "view"              : Service::getView(),
+            "session"           : Service::getSession(),
             "mysql"             : Service::getMySQL(),
-            "view"              : Service::getView()
-            //"mongo"             : Service::getMongoDB(),
-            //"collectionManager" : Service::getCollectionManager()
+            "mongo"             : Service::getMongoDB(),
+            "collectionManager" : Service::getCollectionManager()
         ];
     }
 
@@ -311,6 +379,11 @@ class App
         return this;
     }
 
+    public inline function watch()
+    {
+
+    }
+
     /**
      * Measure application running time
      *
@@ -333,7 +406,7 @@ class App
      *
      * @return string
      */
-    public inline function getHtml()
+    public inline function html()
     {
         return this->html;
     }
