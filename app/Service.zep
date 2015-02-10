@@ -33,6 +33,7 @@ use Phalcon\Mvc\Url as UrlResolver;
 use Phalcon\Db\Adapter\Pdo\Mysql as DbAdapter;
 use App\Plugin\Volt as VoltEngine;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
+use Phalcon\Logger\Adapter\File as FileAdapter;
 use Phalcon\Mvc\Collection\Manager as CollectionManager;
 use Phalcon\Translate\Adapter\Gettext as Translator;
 use Phalcon\Db\Adapter\Pdo\Mysql;
@@ -50,6 +51,7 @@ use Phalcon\Db\Adapter\Pdo\Mysql;
  */
 class Service
 {
+
 	/**
      * Application Service
      *
@@ -57,12 +59,18 @@ class Service
      */
 	public service;
 
-    /**
-     * Service Instance
-     *
-     * @var Phalcon\Service
-     */
 	private static static_service;
+    private static static_url;
+    private static static_crypt;
+    private static static_view;
+    private static static_volt;
+    private static static_logger;
+    private static static_cookie;
+    private static static_session;
+    private static static_redis;
+    private static static_mysql;
+    private static static_mongo;
+    private static static_col_manager;
 
     /**
      * Constructor
@@ -108,16 +116,6 @@ class Service
     }
 
     /**
-     * Get path
-     *
-     * @return App\Path
-     */
-    public inline static function getPath()
-    {
-        // NEED TO DELETE
-    }
-
-    /**
      * Get config
      *
      * @return App\Config
@@ -134,11 +132,16 @@ class Service
      */
     public inline static function getUrl()
     {
+        if self::static_url {
+            return self::static_url;
+        }
+
         var url;
 
         let url = new UrlResolver();
         url->setBaseUri("/");
 
+        let self::static_url = url;
         return url;
     }
 
@@ -149,6 +152,10 @@ class Service
      */
     public inline static function getView()
     {
+        if self::static_view {
+            return self::static_view;
+        }
+
         var view;
         let view = new View();
 
@@ -159,6 +166,7 @@ class Service
                 }
             ]);
 
+        let self::static_view = view;
         return view;
     }
 
@@ -169,6 +177,10 @@ class Service
      */
     public inline static function getVolt(view, di)
     {
+        if self::static_volt {
+            return self::static_volt;
+        }
+
         var volt;
         let volt = new VoltEngine(view, di);
 
@@ -180,6 +192,7 @@ class Service
 
         self::setCompiler(volt->getCompiler());
 
+        let self::static_volt = volt;
         return volt;
     }
 
@@ -207,7 +220,15 @@ class Service
      */
     public inline static function getSession()
     {
-        return new SessionAdapter();
+        if self::static_session {
+            return self::static_session;
+        }
+
+        var session;
+        let session = new SessionAdapter();
+
+        let self::static_session = session;
+        return session;
     }
 
     /**
@@ -217,9 +238,15 @@ class Service
      */
     public inline static function getCookie()
     {
+        if self::static_cookie {
+            return self::static_cookie;
+        }
+
         var cookies;
         let cookies = new \Phalcon\Http\Response\Cookies();
         cookies->useEncryption(true);
+
+        let self::static_cookie = cookies;
         return cookies;
     }
 
@@ -230,20 +257,34 @@ class Service
      */
     public inline static function getCrypt()
     {
+        if self::static_crypt {
+            return self::static_crypt;
+        }
+
         var crypt;
         let crypt = new \Phalcon\Crypt();
         crypt->setKey("#1dj8$=dp?.ak//j1V$");
+
+        let self::static_crypt = crypt;
         return crypt;
     }
 
     /**
-     * Get google cloud storage
+     * Get logger
      *
-     * @return App\Storage
+     * @return Phalcon\Logger\Adapter\File
      */
-    public inline static function getStorage()
+    public inline static function getLogger()
     {
-        return Storage::getInstance()->getStorage();
+        if self::static_logger {
+            return self::static_logger;
+        }
+
+        var logger;
+        let logger = new FileAdapter(self::getConfig()->path->log);
+
+        let self::static_logger = logger;
+        return logger;
     }
 
     /**
@@ -253,20 +294,27 @@ class Service
      */
     public inline static function getMySQL()
     {
-        var mysql;
-        let mysql = self::getConfig()->database->mysql;
+        if self::static_mysql {
+            return self::static_mysql;
+        }
 
-        return new Mysql([
-            "host"    : mysql->host,
-            "port"    : mysql->port,
-            "username": mysql->username,
-            "password": mysql->password,
-            "dbname"  : mysql->dbname,
+        var config, mysql;
+        let config = self::getConfig()->database->mysql;
+
+        let mysql = new Mysql([
+            "host"    : config->host,
+            "port"    : config->port,
+            "username": config->username,
+            "password": config->password,
+            "dbname"  : config->dbname,
             "options" : [
                 // PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"
-                1002 : "SET NAMES " . mysql->charset
+                1002 : "SET NAMES " . config->charset
             ]
         ]);
+
+        let self::static_mysql = mysql;
+        return mysql;
     }
 
     /**
@@ -276,26 +324,33 @@ class Service
      */
     public inline static function getMongoDB()
     {
-        var mongo;
-        let mongo = self::getConfig()->database->mongo;
-
-        if mongo->password {
-            let mongo->password = ":" . mongo->password;
+        if self::static_mongo {
+            return self::static_mongo;
         }
 
-        if mongo->port {
-            let mongo->port = ":" . mongo->port;
+        var mongo, config;
+        let config = self::getConfig()->database->mongo;
+
+        if config->password {
+            let config->config = ":" . config->password;
         }
 
-        if mongo->dbname {
-            let mongo->dbname = "/" . mongo->dbname;
+        if config->port {
+            let config->port = ":" . config->port;
+        }
+
+        if config->dbname {
+            let config->dbname = "/" . config->dbname;
         }
 
         // TODO
         // Add username and password to Mongo URI
-        return new \MongoClient(
-                        "mongodb://" . mongo->host . mongo->port . mongo->dbname
+        let mongo = new \MongoClient(
+                        "mongodb://" . config->host . config->port . config->dbname
                     );
+
+        let self::static_mongo = mongo;
+        return mongo;
     }
 
     /**
@@ -305,7 +360,15 @@ class Service
      */
     public inline static function getCollectionManager()
     {
-        return new CollectionManager();
+        if self::static_col_manager {
+            return self::static_col_manager;
+        }
+
+        var col_manager;
+        let col_manager = new CollectionManager();
+
+        let self::static_col_manager = col_manager;
+        return col_manager;
     }
 
     /**
@@ -315,9 +378,15 @@ class Service
      */
     public inline static function getRedis()
     {
-        var redis, config;
+        if self::static_redis {
+            return self::static_redis;
+        }
+
+        var redis;
         let redis = new \Redis();
         redis->connect("localhost", 6379);
+
+        let self::static_redis = redis;
         return redis;
     }
 }

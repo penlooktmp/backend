@@ -64,7 +64,7 @@ class AppTest extends Test
     {
         $services = $this->app->getListServices();
         $this->assertNotEmpty($services);
-        //$this->assertEquals(10, count($services));
+        $this->assertEquals(11, count($services));
     }
 
 }

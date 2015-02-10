@@ -55,11 +55,6 @@ class Controller extends Phalcon_Controller
     private _config;
 
     /**
-     * @var \App\Path
-     */
-    private _path;
-
-    /**
      * @var \Phalcon\Mvc\RouterInterface
      */
     private _router;
@@ -126,8 +121,7 @@ class Controller extends Phalcon_Controller
 
     /**
      * @var \Phalcon\Mvc\Model\Transaction\Manager
-     */
-    private _transactionManager;
+     `    private _transactionManager;
 
     /**
      * @var \Phalcon\FilterInterface
@@ -215,7 +209,6 @@ class Controller extends Phalcon_Controller
         let this->_di = this->{"di"};
         let this->_url = this->{"url"};
         let this->_view = this->{"view"};
-        let this->_path = this->{"path"};
         let this->_config = this->{"config"};
         let this->_session = this->{"session"};
         let this->_cookies = this->{"cookies"};
@@ -589,8 +582,8 @@ class Controller extends Phalcon_Controller
             var default_resources, action_resources;
 
             // Load default resource
-            let default_resources = yaml_parse_file(this->_path->resources . "/default.yml");
-            let action_resources  = yaml_parse_file(this->_path->resources . "/" .controller . ".yml");
+            let default_resources = yaml_parse_file(this->_config->path->resources . "/default.yml");
+            let action_resources  = yaml_parse_file(this->_config->path->resources . "/" .controller . ".yml");
 
             var custom_css, custom_js;
 
@@ -616,20 +609,20 @@ class Controller extends Phalcon_Controller
             let less = "\n";
 
             for _, filename in custom_css {
-                let filename = this->_path->web . "/css/" . filename . ".less";
+                let filename = this->_config->path->web . "/css/" . filename . ".less";
                 if (file_exists(filename)) {
                     let less = less . file_get_contents(filename) . "\n";
                 }
             }
 
             // clean JS files
-            let file_path = this->_path->web . "/js/modules";
+            let file_path = this->_config->path->web . "/js/modules";
             let cmd = "find " . file_path . " -type f -name '*.js' -exec rm -f {} ;";
 
             exec(cmd);
 
             for _, filename in custom_js {
-                let file_path = this->_path->web . "/js/" . filename;
+                let file_path = this->_config->path->web . "/js/" . filename;
                 let file_coffee = file_path . ".coffee";
                 let file_js = file_path . ".js";
 
