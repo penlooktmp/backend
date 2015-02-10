@@ -56,8 +56,6 @@ class IndexTest extends Test
                 }
              });
 
-        print_r($app);
-
         /*$closure = array(
             'url'              => \App\Service::getUrl(),
             'path'             => \App\Service::getPath(),

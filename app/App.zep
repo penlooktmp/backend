@@ -87,6 +87,30 @@ class App
     private application;
 
     /**
+     * Logger
+     *
+     * @var App\Log
+     */
+    private logger;
+
+    /**
+     * Web page
+     *
+     * @var string
+     */
+    private html;
+
+    /**
+     * Start application time
+     */
+    private start;
+
+    /**
+     * Stop application time
+     */
+    private stop;
+
+    /**
      * Temporary property
      */
     public debug;
@@ -104,8 +128,20 @@ class App
      */
     public inline function __construct()
     {
+        let this->start   =  microtime(true);
         let this->config  =  Config ::getInstance();
         let this->service =  Service::getInstance();
+    }
+
+    public inline function setLogger(logger)
+    {
+        let this->logger = logger;
+        return this;
+    }
+
+    public inline function getLogger()
+    {
+        return this->logger;
     }
 
     /**
@@ -243,6 +279,10 @@ class App
     public inline function setRoot(root)
     {
         this->config->setRoot(root);
+
+        // Initialize configuration
+        this->config->initialize();
+
         return this;
     }
 
@@ -257,15 +297,45 @@ class App
     }
 
     /**
-     * Run application
+     * Start application
      *
      */
-    public inline function run()
+    public inline function start()
     {
         this->setLoader(new Loader())
-            ->setApplication(new Application(this->service));
+            ->setApplication(new Application(this->service->getService()));
 
-        echo this->getApplication()->handle()->getContent();
+        let this->html = this->getApplication()->handle()->getContent();
+        let this->stop  = microtime(true);
+
+        return this;
+    }
+
+    /**
+     * Measure application running time
+     *
+     * @return App\App
+     */
+    public inline function measure()
+    {
+        var time;
+        let time = (double) (this->stop * 1000.000000) - (double) (this->start * 1000.000000);
+        let time = (string) time;
+
+        // Override HTML content
+        let this->html = "Running time : " . time . " ms";
+
+        return this;
+    }
+
+    /**
+     * Get HTML Page
+     *
+     * @return string
+     */
+    public inline function getHtml()
+    {
+        return this->html;
     }
 
 }

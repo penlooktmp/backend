@@ -40,58 +40,7 @@ use Phalcon\Loader as Phalcon_Loader;
  * @link       http://github.com/penlook
  * @since      Class available since Release 1.0
  */
-class Loader
+class Exception
 {
-
-    /**
-     * Application Loader
-     *
-     * @var Phalcon\Loader
-     */
-	public loader;
-
-    /**
-     * Constructor
-     *
-     */
-    private function __construct()
-	{
-        let this->loader = new Phalcon_Loader();
-	}
-
-    /**
-     * Get additional namespaces
-     *
-     * @return array
-     */
-    public inline function getNamespaces()
-    {
-        var config, namespaces;
-        let config = Config::getInstance()->getConfig();
-
-        let namespaces = [
-        ];
-
-        return namespaces;
-    }
-
-    /**
-     * Register namespace
-     *
-     */
-    public inline function registerNamespaces()
-    {
-        this->loader->registerNamespaces(this->getNamespaces());
-    }
-
-    /**
-     * Get loader
-     *
-     * @var Phalcon\Loader
-     */
-    public inline function getLoader()
-    {
-    	return this->loader;
-    }
 
 }
