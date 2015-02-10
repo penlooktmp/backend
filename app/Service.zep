@@ -51,8 +51,7 @@ use Phalcon\Db\Adapter\Pdo\Mysql;
  */
 class Service
 {
-
-	/**
+    /**
      * Application Service
      *
      * @var Phalcon\DI\FactoryDefault

@@ -157,6 +157,8 @@ class Controller extends Phalcon_Controller
      */
 	public inline function initialize()
 	{
+        Flow::pick();
+
 	    // Phalcon extender
         this->extender();
         this->init();

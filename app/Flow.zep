@@ -41,4 +41,47 @@ namespace App;
 class Flow
 {
 
+	public static flow;
+
+	public inline static function start(message = "")
+	{
+		let self::flow = [];
+		Flow::push(message);
+	}
+
+	public inline static function pick(message = "")
+	{
+		Flow::push(message);
+	}
+
+	public inline static function push(message)
+	{
+		var time, memory, class_name, method_name;
+		let time   = (float) microtime(true);
+		let memory = (double) (memory_get_peak_usage(true) * 1.00 / 1024 / 1024);
+
+		var callers;
+		let callers = debug_backtrace();
+		let class_name  = callers[2]["class"];
+		let method_name = callers[2]["function"];
+
+		let self::flow[] = [
+			"class_name"  : class_name,
+			"method_name" : method_name,
+			"time"        : time,
+			"memory"      : memory,
+			"message"     : message
+		];
+	}
+
+	public inline static function getFlow()
+	{
+		return self::flow;
+	}
+
+	public inline static function watch()
+	{
+
+	}
+
 }

@@ -18,6 +18,7 @@
             <file>app/ServiceTest.php</file>
             <file>app/AppTest.php</file>
             <file>app/IndexTest.php</file>
+            <file>app/FlowTest.php</file>
         </testsuite>
 
     </testsuites>

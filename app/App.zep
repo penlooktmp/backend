@@ -108,16 +108,6 @@ class App
     private html;
 
     /**
-     * Start application time
-     */
-    private start;
-
-    /**
-     * Stop application time
-     */
-    private stop;
-
-    /**
      * Temporary property
      */
     public debug;
@@ -135,7 +125,7 @@ class App
      */
     public inline function __construct()
     {
-        let this->start   =  microtime(true);
+        Flow::start();
     }
 
     /**
@@ -374,8 +364,6 @@ class App
             ->setApplication(new Application(this->service->getService()));
 
         let this->html = this->getApplication()->handle()->getContent();
-        let this->stop  = microtime(true);
-
         return this;
     }
 
@@ -391,13 +379,16 @@ class App
      */
     public inline function measure()
     {
-        var time;
+        /*var time, memory;
         let time = (double) (this->stop * 1000.000000) - (double) (this->start * 1000.000000);
         let time = (string) time;
 
-        // Override HTML content
-        let this->html = "Running time : " . time . " ms";
+        let memory = memory_get_usage();
 
+        // Override HTML content
+        let this->html  = "Running time : " . time . " ms <br/>";
+        let this->html  = this->html . "Memory : " . memory;
+        */
         return this;
     }
 
@@ -408,6 +399,7 @@ class App
      */
     public inline function html()
     {
+        Flow::stop();
         return this->html;
     }
 
