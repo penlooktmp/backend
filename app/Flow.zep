@@ -28,7 +28,7 @@
 namespace App;
 
 /**
- * Application Loader
+ * Application Flow
  *
  * @category   Penlook Application
  * @package    App\Config
@@ -41,8 +41,17 @@ namespace App;
 class Flow
 {
 
+	/**
+	 * Application flow - a stop watch for application
+	 *
+	 */
 	public static flow;
 
+	/**
+	 * Start flow
+	 *
+	 * @param string message
+	 */
 	public inline static function start(message = "")
 	{
 		if ! App::debug() {
@@ -54,6 +63,11 @@ class Flow
 		Flow::push(message);
 	}
 
+	/**
+	 * Pick a message to queue
+	 *
+	 * @param string message
+	 */
 	public inline static function pick(message = "")
 	{
 		if ! App::debug() {
@@ -63,6 +77,11 @@ class Flow
 		Flow::push(message);
 	}
 
+	/**
+	 * Push current state to queue
+	 *
+	 * @param string message
+	 */
 	public inline static function push(message)
 	{
 		var time, memory, class_name, method_name;
@@ -83,14 +102,22 @@ class Flow
 		];
 	}
 
+	/**
+	 * Retrieve all state in flow
+	 *
+	 * @return array Array of states
+	 */
 	public inline static function getFlow()
 	{
 		return self::flow;
 	}
 
-	public inline static function watch()
+	public inline static function viewFlow()
 	{
+		if ! App::debug() {
+			return;
+		}
 
+		return View::render("/", self::flow);
 	}
-
 }

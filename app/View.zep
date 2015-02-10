@@ -51,7 +51,7 @@ class View
 		let session  = Service::getSession();
         let language = session->get("language");
 
-        if language==null {
+        if language == null {
             let language = "en_US";
         }
 
@@ -158,6 +158,11 @@ class View
         }
 
         return styles;
+    }
+
+    public inline static function render(template, data)
+    {
+
     }
 
 }

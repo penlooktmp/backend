@@ -28,7 +28,7 @@
 namespace App;
 
 /**
- * Loader Test
+ * Flow Test
  *
  * @category   Penlook Application
  * @package    App
