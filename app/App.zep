@@ -117,7 +117,7 @@ class App
      *
      * @var int
      */
-    public mode;
+    public static mode;
 
     /**
      * Application Constructor
@@ -139,7 +139,7 @@ class App
         let this->service = Service::getInstance();
         let this->session = Service::getSession();
 
-        switch this->mode {
+        switch self::mode {
             case self::DEBUG:
                     this->setupDebug();
                 break;
@@ -207,7 +207,7 @@ class App
      */
     public inline function setMode(mode)
     {
-        let this->mode = mode;
+        let self::mode = mode;
 
         // Initialize application by mode
         this->initialize();
@@ -216,14 +216,33 @@ class App
     }
 
     /**
+     * Change current mode
+     *
+     * @return int
+     */
+    public inline static function changeMode(mode)
+    {
+        let self::mode = mode;
+    }
+
+    /**
      * Get mode
      * Retrieve current mode of application
      *
      * @return int
      */
-    public inline function getMode()
+    public inline static function getMode()
     {
-        return this->mode;
+        return self::mode;
+    }
+
+    /**
+     * Check debug mode
+     *
+     */
+    public inline static function debug()
+    {
+        return self::mode === self::DEBUG ? true : false;
     }
 
     /**

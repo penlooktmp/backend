@@ -51,13 +51,13 @@ class AppTest extends Test
     public function testSetGetMode()
     {
         $this->app->setMode(App::DEBUG);
-        $this->assertEquals($this->app->getMode(), 0);
+        $this->assertEquals(App::getMode(), 0);
 
         $this->app->setMode(App::RELEASE);
-        $this->assertEquals($this->app->getMode(), 1);
+        $this->assertEquals(App::getMode(), 1);
 
         $this->app->setMode(App::MAINTAIN);
-        $this->assertEquals($this->app->getMode(), 2);
+        $this->assertEquals(App::getMode(), 2);
     }
 
     public function testGetListServices()

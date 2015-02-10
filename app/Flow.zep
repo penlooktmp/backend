@@ -45,12 +45,21 @@ class Flow
 
 	public inline static function start(message = "")
 	{
+		if ! App::debug() {
+			let self::flow = null;
+			return;
+		}
+
 		let self::flow = [];
 		Flow::push(message);
 	}
 
 	public inline static function pick(message = "")
 	{
+		if ! App::debug() {
+			return;
+		}
+
 		Flow::push(message);
 	}
 
@@ -58,7 +67,7 @@ class Flow
 	{
 		var time, memory, class_name, method_name;
 		let time   = (float) microtime(true);
-		let memory = (double) (memory_get_peak_usage(true) * 1.00 / 1024 / 1024);
+		let memory = (double) (memory_get_peak_usage(true));
 
 		var callers;
 		let callers = debug_backtrace();

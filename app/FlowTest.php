@@ -40,33 +40,53 @@ namespace App;
  */
 class FlowTest extends Test
 {
-    /**
-     * Test Application Flow
-     */
-    public function testStartFlow()
-    {
 
-        function loop($num) {
-            $datai = array ();
-            for ($i = 1; $i <= $num; $i++) {
-                $dataj = array();
-                for ($j = 1; $j <= 100; $j++) {
-                    $dataj[] = array(
-                        "test1" => $i,
-                        "test2" => $j,
-                        "test3" => $i * $j
-                    );
-                }
-                $datai[] = $dataj;
+    // Spent memory to test monitor
+    public function loop($num) {
+        $datai = array ();
+        for ($i = 1; $i <= $num; $i++) {
+            $dataj = array();
+            for ($j = 1; $j <= 100; $j++) {
+                $dataj[] = array(
+                    "test1" => $i,
+                    "test2" => $j,
+                    "test3" => $i * $j
+                );
             }
+            $datai[] = $dataj;
+        }
+    }
+
+    /**
+     * Test Application Flow in debug mode
+     */
+    public function testFlowDebug()
+    {
+        App::changeMode(App::DEBUG);
+        Flow::start("LOOP 0");
+
+        for ($f = 1; $f <= 5; $f++) {
+            $this->loop($f * 100);
+            Flow::pick('LOOP '. $f * 100);
         }
 
-        for ($f = 1; $f <= 10; $f++) {
-            loop($f*100);
-            Flow::pick('LOOP '. $f*100);
+        $this->assertEquals(6, count(Flow::getFlow()));
+    }
+
+    /**
+     * Test Application Flow in release mode
+     */
+    public function testFlowRelease()
+    {
+        App::changeMode(App::RELEASE);
+        Flow::start("LOOP 0");
+
+        for ($f = 1; $f <= 5; $f++) {
+            $this->loop($f * 100);
+            Flow::pick('LOOP '. $f * 100);
         }
 
-        print_r(Flow::getFlow());
+        $this->assertNull(Flow::getFlow());
     }
 
 }
