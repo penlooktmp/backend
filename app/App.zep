@@ -399,7 +399,6 @@ class App
      */
     public inline function html()
     {
-        Flow::stop();
         return this->html;
     }
 

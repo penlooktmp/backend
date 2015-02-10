@@ -45,16 +45,28 @@ class FlowTest extends Test
      */
     public function testStartFlow()
     {
-        Flow::start('Step 1');
-        $a = 3;
-        $b = $a * 100;
-        Flow::pick('Step 2');
-        $c = array (
-            'a' => 1
-        );
+
+        function loop($num) {
+            $datai = array ();
+            for ($i = 1; $i <= $num; $i++) {
+                $dataj = array();
+                for ($j = 1; $j <= 100; $j++) {
+                    $dataj[] = array(
+                        "test1" => $i,
+                        "test2" => $j,
+                        "test3" => $i * $j
+                    );
+                }
+                $datai[] = $dataj;
+            }
+        }
+
+        for ($f = 1; $f <= 10; $f++) {
+            loop($f*100);
+            Flow::pick('LOOP '. $f*100);
+        }
 
         print_r(Flow::getFlow());
-
     }
 
 }
