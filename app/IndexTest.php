@@ -56,6 +56,8 @@ class IndexTest extends Test
                 }
              });
 
+        print_r($app);
+
         /*$closure = array(
             'url'              => \App\Service::getUrl(),
             'path'             => \App\Service::getPath(),
@@ -114,9 +116,6 @@ class IndexTest extends Test
     ->setLanguage('en_US')
     ->setService()
     ->run();*/
-
-        $app = new App();
-        $app->test();
 
 
     }

@@ -104,7 +104,8 @@ class App
      */
     public inline function __construct()
     {
-        let this->config = Config::getInstance();
+        let this->config  =  Config ::getInstance();
+        let this->service =  Service::getInstance();
     }
 
     /**
@@ -138,12 +139,13 @@ class App
      */
     public inline function getService()
     {
-        return Service::getInstance()->getService();
+        return this->service;
     }
 
     /**
      * Set multiple services
      *
+     * @param function callback
      * @return App\App
      */
     public inline function setServices(callback)
@@ -159,7 +161,7 @@ class App
      */
     public inline function setService(name, closure)
     {
-        this->getService()->set(name, closure);
+        this->getService()->getService()->set(name, closure);
         return this;
     }
 
@@ -188,6 +190,17 @@ class App
     }
 
     /**
+     * Set loader
+     *
+     * @return App\App
+     */
+    public inline function setLoader(loader)
+    {
+        let this->loader = loader;
+        return this;
+    }
+
+    /**
      * Get loader
      * Retrieve application loader
      *
@@ -199,7 +212,19 @@ class App
     }
 
     /**
-     * Get application
+     * Set application instance
+     *
+     * @param Phalcon\Mvc\Application app
+     * @return App\App
+     */
+    public inline function setApplication(app)
+    {
+        let this->application = app;
+        return this;
+    }
+
+    /**
+     * Get application instance
      *
      * @return Phalcon\Mvc\Application
      */
@@ -237,22 +262,10 @@ class App
      */
     public inline function run()
     {
-        let this->loader = new Loader();
-        this->loader->registerNamespaces();
+        this->setLoader(new Loader())
+            ->setApplication(new Application(this->service));
 
-        let this->application = new Application(this->service);
-        echo this->application->handle()->getContent();
-    }
-
-    public inline function test()
-    {
-        var func;
-
-        let func = function(str1, str2) {
-            echo str1." ". str2;
-        };
-
-        call_user_func_array(func, ["Hello", "World"]);
+        echo this->getApplication()->handle()->getContent();
     }
 
 }
