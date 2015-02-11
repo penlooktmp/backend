@@ -112,12 +112,17 @@ class Flow
 		return self::flow;
 	}
 
-	public inline static function viewFlow()
+	public inline static function graph(template)
 	{
 		if ! App::debug() {
 			return;
 		}
 
-		return View::render("/", self::flow);
+		var view;
+		let view = new Phalcon\Mvc\View\Simple();
+ 		view->setViewsDir(template);
+ 		view->render("performance/graph", self::getFlow());
+
+		return view->getContent();
 	}
 }

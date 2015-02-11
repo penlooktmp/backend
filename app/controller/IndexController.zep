@@ -37,6 +37,7 @@ use App\Model\Collection\Like;
 use App\Model\Collection\Status;
 use App\Model\Collection\Comment;
 use App\Module\Auth;
+use App\Flow;
 use Phalcon\Mvc\View;
 
 /**
@@ -58,6 +59,8 @@ class IndexController extends Controller
      */
     public inline function indexAction()
     {
+        Flow::pick("Index action");
+
         var auth, action;
         let auth  = new Auth();
 

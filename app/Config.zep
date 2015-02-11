@@ -162,6 +162,8 @@ class Config
      */
     public inline function getRawConfig()
     {
+        Flow::pick("Get raw config from redis");
+
         return [
             "language"  : "en_US",
             "app" : this->get("backend.yml", "app"),

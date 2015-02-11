@@ -157,10 +157,10 @@ class Controller extends Phalcon_Controller
      */
 	public inline function initialize()
 	{
-        Flow::pick();
-
-	    // Phalcon extender
+        Flow::pick("Controller extend from phalcon");
         this->extender();
+
+        Flow::pick("Controller initialize");
         this->init();
 	}
 
@@ -543,6 +543,8 @@ class Controller extends Phalcon_Controller
      */
     public function afterExecuteRoute()
     {
+        Flow::pick("After run action");
+
         if ! this->after {
             let this->after = true;
             return;

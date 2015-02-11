@@ -101,6 +101,13 @@ class App
     private logger;
 
     /**
+     * Template directory
+     *
+     * @var string
+     */
+    private template;
+
+    /**
      * Web page
      *
      * @var string
@@ -120,25 +127,12 @@ class App
     public static mode;
 
     /**
-     * Application Constructor
-     *
-     */
-    public inline function __construct()
-    {
-        Flow::start();
-    }
-
-    /**
      * Initialize application
      *
      * @return App\App
      */
     public inline function initialize()
     {
-        let this->config  = Config ::getInstance();
-        let this->service = Service::getInstance();
-        let this->session = Service::getSession();
-
         switch self::mode {
             case self::DEBUG:
                     this->setupDebug();
@@ -153,6 +147,10 @@ class App
                 break;
         }
 
+        let this->config  = Config ::getInstance();
+        let this->service = Service::getInstance();
+        let this->session = Service::getSession();
+
         return this;
     }
 
@@ -162,7 +160,7 @@ class App
      */
     public inline function setupDebug()
     {
-        this->session->set("mode", App::DEBUG);
+        Flow::start("index.php");
         error_reporting(E_ALL);
         ini_set("display_errors", true);
     }
@@ -173,7 +171,6 @@ class App
      */
     public inline function setupRelease()
     {
-        this->session->set("mode", App::RELEASE);
         error_reporting(0);
         ini_set("display_errors", false);
     }
@@ -240,9 +237,15 @@ class App
      * Check debug mode
      *
      */
-    public inline static function debug()
+    public inline static function debug(variable = null)
     {
-        return self::mode === self::DEBUG ? true : false;
+        if variable == null {
+            return self::mode === self::DEBUG ? true : false;
+        }
+
+        echo "<pre>";
+        print_r(variable);
+        echo "</pre>";
     }
 
     /**
@@ -287,6 +290,8 @@ class App
      */
     public inline function getListServices()
     {
+        Flow::pick("Get list services");
+
         return [
             "url"               : Service::getUrl(),
             "config"            : Service::getConfig(),
@@ -374,40 +379,40 @@ class App
     }
 
     /**
+     * Set template directory
+     *
+     * @param string template
+     */
+    public inline function setTemplate(template)
+    {
+        let this->template = realpath(template);
+        return this;
+    }
+
+    /**
+     * Get template directory
+     *
+     * @return string
+     */
+    public inline function getTemplate()
+    {
+        return this->template;
+    }
+
+    /**
      * Start application
      *
      */
     public inline function start()
     {
+        Flow::pick("Setup loader and application");
+
         this->setLoader(new Loader())
             ->setApplication(new Application(this->service->getService()));
 
+        Flow::pick("Start handle router");
+
         let this->html = this->getApplication()->handle()->getContent();
-        return this;
-    }
-
-    public inline function watch()
-    {
-
-    }
-
-    /**
-     * Measure application running time
-     *
-     * @return App\App
-     */
-    public inline function measure()
-    {
-        /*var time, memory;
-        let time = (double) (this->stop * 1000.000000) - (double) (this->start * 1000.000000);
-        let time = (string) time;
-
-        let memory = memory_get_usage();
-
-        // Override HTML content
-        let this->html  = "Running time : " . time . " ms <br/>";
-        let this->html  = this->html . "Memory : " . memory;
-        */
         return this;
     }
 
@@ -416,9 +421,19 @@ class App
      *
      * @return string
      */
-    public inline function html()
+    public inline function html(text)
     {
         return this->html;
+    }
+
+    /**
+     * Application flow
+     *
+     * @return string html
+     */
+    public inline function flow()
+    {
+        return Flow::graph(this->template);
     }
 
 }
