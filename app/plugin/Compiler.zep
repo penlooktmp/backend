@@ -50,6 +50,8 @@ class Compiler
         string folder, js_content = "", cmd, file_path;
         var coffee, redis;
 
+        let server = "123";
+
         //let folder = \App\Path::getInstance()->web . "/js/";
         let folder = "/abc";
 
@@ -90,6 +92,7 @@ class Compiler
         string less_string = "", cmd, style;
 
         let folder = "root";
+        let server = "3";
 
         /*let less_config_file = folder . "/css/config.less";
         let less_config = file_get_contents(less_config_file);

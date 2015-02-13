@@ -99,15 +99,22 @@ class AliasModel extends Model
         var controller;
         let controller = false;
 
-        switch (this->alias->type) {
-            case "u": let controller = "User";
+        switch this->alias->type {
+            case "u":
+                let controller = "User";
                 break;
-            case "o": let controller = "Organization";
+            case "o":
+                let controller = "Organization";
                 break;
-            case "s": let controller = "Skill";
+            case "s":
+                let controller = "Skill";
                 break;
         }
 
-        return controller ? controller : false;
+        if controller {
+            return controller;
+        }
+
+        return false;
     }
 }

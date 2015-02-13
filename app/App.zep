@@ -443,7 +443,7 @@ class App
      *
      * @return string
      */
-    public inline function html(text)
+    public inline function html()
     {
         return this->html;
     }

@@ -70,9 +70,9 @@ class IndexController extends Controller
             let action = "welcome";
         }
 
-        //return this->forward([
-        //    "action" : action
-        //]);
+        return this->forward([
+            "action" : action
+        ]);
     }
 
     /**

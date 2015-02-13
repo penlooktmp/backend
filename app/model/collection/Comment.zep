@@ -43,35 +43,5 @@ use App\Collection;
  */
 class Comment extends Collection
 {
-    public status_id;
-
-	public data;
-
-	public time;
-
-
-	public function getSource()
-    {
-        return "comment";
-    }
-
-    public static function getAllComments()
-    {
-    	return self::find();
-    }
-
-    public static function getCommentByStatusId(var status_id)
-    {
-    	return self::find([
-    		["status_id" 	 : status_id],
-    		"sort" 		     : ["time" : 1]
-			]);
-    }
-
-    public function post(var data)
-    {
-        let this->data = data;
-        this->save();
-    }
 
 }

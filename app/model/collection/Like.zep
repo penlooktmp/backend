@@ -43,43 +43,5 @@ use App\Collection;
  */
 class Like extends Collection
 {
-	public data;
-
-	public time;
-
-	public function getSource()
-    {
-        return "like";
-    }
-
-    public static function getAllLikes()
-    {
-    	return self::find();
-    }
-
-    public static function getLikeByStatusId(var status_id)
-    {
-    	return self::find([
-    		["status_id" 	 : status_id],
-    		"sort" 		     : ["time" : 1]
-			]);
-    }
-
-    public function post(var data)
-    {
-    	let this->time = date("Y/m/d H:i:s");
-    	let this->data = data;
-    	this->save();
-    }
-
-    public static function  saveUnLike(var status_id)
-    {
-        var user_id = "11", like_status; //hard code, can get by Auth class
-        let like_status = self::findFirst([[
-                "user_id" : user_id,
-                "status_id" : status_id
-        ]]);
-        like_status->delete();
-    }
 
 }

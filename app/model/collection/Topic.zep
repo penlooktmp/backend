@@ -42,42 +42,6 @@ use App\Collection;
  */
 class Topic extends Collection
 {
-    public data;
-    public type;
-    public time;
-    public comment;
-    public like;
-
-	public inline function initialize()
-	{
-		parent::initialize();
-		let this->time = time();
-	}
-
-	public inline function getSource()
-    {
-        return "topic";
-    }
-
-    public inline static function getAllTopic()
-    {
-    	return self::find([
-    	    "sort" : [
-    	        "time" : -1
-    	    ],
-    	    "limit" : 20
-  	    ]);
-    }
-
-    public inline function post(type, data)
-    {
-        let this->time = date("Y/m/d H:i:s");
-        let this->comment = [];
-        let this->like = [];
-        let this->type = type;
-        let this->data = data;
-        this->save();
-    }
 
 }
 

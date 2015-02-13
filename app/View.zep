@@ -159,10 +159,4 @@ class View
 
         return styles;
     }
-
-    public inline static function render(template, data)
-    {
-
-    }
-
 }

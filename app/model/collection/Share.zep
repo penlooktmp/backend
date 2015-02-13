@@ -43,42 +43,4 @@ use App\Collection;
  */
 class Share extends Collection
 {
-	public user_id;
-
-    public status_id;
-
-	public name;
-
-	public time;
-
-    public data;
-
-	public function getSource()
-    {
-        return "share";
-    }
-
-    public static function getAllShares()
-    {
-    	return self::find();
-    }
-
-    public static function getShareByStatusId(var status_id)
-    {
-    	return self::find([
-    		["status_id" 	 : status_id],
-    		"sort" 		     : ["time" : 1]
-			]);
-    }
-
-    public function saveLike(var user_id, var status_id, var name, var data)
-    {
-    	let this->time 		= date("Y/m/d H:i:s");
-    	let this->user_id 	= user_id;
-    	let this->status_id = status_id;
-    	let this->name 		= name;
-        let this->data      = data;
-    	this->save();
-    }
-
 }

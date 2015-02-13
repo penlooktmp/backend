@@ -651,9 +651,4 @@ class Controller extends Phalcon_Controller
             ]);
         }
     }
-
-    public function renderTemplate(folder, file)
-    {
-        //return file_get_contents(\App\Path::getInstance(null)->web . "/../app/view/" . folder . "/" . file . ".volt");
-    }
 }
