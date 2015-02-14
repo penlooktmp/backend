@@ -154,7 +154,7 @@ class App
                 break;
         }
 
-        let this->config  = Config ::getInstance();
+        let this->config  = Config ::getInstance(this);
         let this->service = Service::getInstance();
         let this->session = Service::getSession();
 
@@ -455,7 +455,7 @@ class App
      */
     public inline function flow()
     {
-        return Flow::graph(this->template);
+        return Flow::graph();
     }
 
 }

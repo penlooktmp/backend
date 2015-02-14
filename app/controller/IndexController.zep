@@ -29,7 +29,6 @@ namespace App\Controller;
 
 use App\Controller;
 use App\Model\AppModel;
-
 use App\Model\IndexModel;
 use App\Model\LanguageModel;
 use App\Model\UserModel;

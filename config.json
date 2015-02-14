@@ -1,7 +1,7 @@
 {
     "stubs": {
         "path": "ide\/%version%\/%namespace%\/",
-        "stubs-run-after-generate": false
+        "stubs-run-after-generate": true
     },
     "warnings": {
         "unused-variable": true,
@@ -35,7 +35,7 @@
         "constant-folding": true,
         "static-constant-class-folding": true,
         "call-gatherer-pass": true,
-        "check-invalid-reads": true,
+        "check-invalid-reads": false,
         "private-internal-methods": false,
         "public-internal-methods": false,
         "public-internal-functions": true

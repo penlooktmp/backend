@@ -158,7 +158,7 @@ class Service
         var view;
         let view = new View();
 
-        view->setViewsDir(self::getConfig()->app->view)
+        view->setViewsDir(self::getConfig()->context->template)
             ->registerEngines([
                 ".volt" : function(view, service) {
                     return Service::getVolt(view, service);

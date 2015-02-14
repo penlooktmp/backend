@@ -27,6 +27,8 @@
 
 namespace App;
 
+use Phalcon\Mvc\View\Simple;
+
 /**
  * Application Flow
  *
@@ -112,17 +114,23 @@ class Flow
 		return self::flow;
 	}
 
-	public inline static function graph(template)
+	public inline static function graph()
 	{
 		if ! App::debug() {
 			return;
 		}
 
-		var view;
-		let view = new Phalcon\Mvc\View\Simple();
- 		view->setViewsDir(template);
- 		view->render("performance/graph", self::getFlow());
+		var view, flow;
+		let flow = clone self::getFlow();
+		let view = Service::getView();
+		view->start();
 
-		return view->getContent();
+		view->getRender("performance", "graph",[]);
+
+		return view;
+
+		//view->finish();
+
+ 		//return view->getContent();
 	}
 }

@@ -94,47 +94,6 @@ class Auth extends Model
     }
 
     /**
-     * Login with username and password
-     *
-     * @param  string email
-     * @param  string hash_password
-     * @param  bool remember
-     * @return bool
-     */
-    public inline function login(email, hash_password, remember = false)
-    {
-        if this->login {
-            return true;
-        }
-
-        var encode_password, user, users;
-
-        let encode_password = Process::encodePassword(email, hash_password);
-        let users = this->app->loginUser(email, encode_password);
-
-        if users != false {
-            let user = new UserModel(users->id);
-
-            // Save user to Session
-            this->app->saveUser(
-                user->getUser()->id,
-                user->getUser()->name,
-                user->getUser()->first_name,
-                user->getUser()->last_name
-            );
-
-            // Remember me in cookie for next login
-            if remember {
-                this->app->rememberUser(user->getUser()->id, user->getSignature());
-            }
-
-            let this->login = true;
-        }
-
-        return this->login;
-    }
-
-    /**
      * Application Logout
      *
      * @return void

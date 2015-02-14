@@ -57,6 +57,8 @@ class Config
      */
     public root;
 
+    public context;
+
     /**
      * Config Instance
      *
@@ -68,9 +70,11 @@ class Config
      * Config constructor
      *
      */
-    private inline function __construct()
+    private inline function __construct(context = null)
     {
-        // Override constructor
+        if context != null {
+            let this->context = context;
+        }
     }
 
     /**
@@ -78,11 +82,11 @@ class Config
      *
      * @return App\Config
      */
-	public inline static function getInstance()
+	public inline static function getInstance(context = null)
     {
 
         if ! self::static_config {
-            let self::static_config = new Config();
+            let self::static_config = new Config(context);
         }
 
         return self::static_config;
@@ -102,7 +106,10 @@ class Config
         let this->path = raw_path;
         */
 
-        let this->config =  new Phalcon_Config(this->getRawConfig());
+        var config;
+        let config =  new Phalcon_Config(this->getRawConfig());
+        let config->context = this->context;
+        let this->config = config;
 
         return this;
     }
