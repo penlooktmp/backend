@@ -14,6 +14,8 @@ before_install:
   - (chmod +x ./travis/preq.sh && sh ./travis/preq.sh)
 
 before_script:
+  - git clone https://github.com/phalcon/cphalcon.git
+  - git clone https://github.com/phalcon/zephir.git
   - git submodule --quiet update --init --recursive
   - (cd cphalcon/ext; export CFLAGS="-g3 -O1 -std=gnu90 -Wall -Werror -Wno-error=uninitialized"; phpize && ./configure --silent --enable-phalcon && make --silent -j4 > /dev/null && sudo make --silent install && phpenv config-add ../../travis/phalcon/app.ini)
   - (composer self-update && composer --prefer-source install)
