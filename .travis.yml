@@ -11,7 +11,9 @@ services:
   - mongodb
 
 before_install:
-  - git submodule --quiet update --init --recursive
+  - git submodule update --recursive
+  - git submodule status
+  - git submodule foreach git checkout master
   - (chmod +x ./travis/preq.sh && sh ./travis/preq.sh)
   - (sudo pip install redis && sudo pip install pyyaml)
   - (chmod +x ./travis/config/build.py && python ./travis/config/build.py)
