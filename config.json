@@ -1,15 +1,29 @@
 {
     "stubs": {
         "path": "ide\/%version%\/%namespace%\/",
-        "stubs-run-after-generate": true
+        "stubs-run-after-generate": false
+    },
+    "api": {
+        "path": "doc\/%version%",
+        "theme": {
+            "name": "zephir",
+            "options": {
+                "github": null,
+                "analytics": null,
+                "main_color": "#3E6496",
+                "link_color": "#3E6496",
+                "link_hover_color": "#5F9AE7"
+            }
+        }
     },
     "warnings": {
         "unused-variable": true,
-        "unused-variable-external": true,
+        "unused-variable-external": false,
+        "possible-wrong-parameter": true,
         "possible-wrong-parameter-undefined": false,
-        "nonexistent-function": false,
-        "nonexistent-class": false,
-        "non-valid-isset": false,
+        "nonexistent-function": true,
+        "nonexistent-class": true,
+        "non-valid-isset": true,
         "non-array-update": true,
         "non-valid-objectupdate": true,
         "non-valid-fetch": true,
@@ -17,7 +31,7 @@
         "non-array-append": true,
         "invalid-return-type": true,
         "unreachable-code": true,
-        "nonexistent-constant": false,
+        "nonexistent-constant": true,
         "not-supported-magic-constant": true,
         "non-valid-decrement": true,
         "non-valid-increment": true,
@@ -35,18 +49,15 @@
         "constant-folding": true,
         "static-constant-class-folding": true,
         "call-gatherer-pass": true,
-        "check-invalid-reads": false,
-        "private-internal-methods": false,
-        "public-internal-methods": false,
-        "public-internal-functions": true
-    },
-     "compiler_directives": {
-        "extend_external" : true
+        "check-invalid-reads": false
     },
     "namespace": "app",
     "name": "app",
-    "description": "Penlook Backend Extension",
-    "author": "Penlook Development Team",
+    "description": "",
+    "author": "",
     "version": "0.0.1",
-    "verbose": true
+    "verbose": false,
+    "requires": {
+        "extensions": []
+    }
 }
