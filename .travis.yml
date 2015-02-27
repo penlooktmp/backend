@@ -16,11 +16,11 @@ before_install:
   - git submodule foreach git checkout master
   - (chmod +x ./travis/preq.sh && sh ./travis/preq.sh)
   - (sudo pip install redis && sudo pip install pyyaml)
-  - (chmod +x ./travis/config/build.py && python ./travis/config/build.py)
+  - python ./travis/config/build.py
 
 before_script:
-  - mysql -e 'create database mysql_test;'
-  - mongo mongo_test --eval 'db.addUser("travis", "test");'
+  - mysql -e 'create database test;'
+  - mongo test --eval 'db.addUser("travis", "test");'
   - git clone https://github.com/phalcon/cphalcon.git
   - git clone https://github.com/phalcon/zephir.git
   - git submodule --quiet update --init --recursive
