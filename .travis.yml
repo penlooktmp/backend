@@ -13,7 +13,7 @@ services:
 before_install:
   - git submodule --quiet update --init --recursive
   - (chmod +x ./travis/preq.sh && sh ./travis/preq.sh)
-  - (pip install redis && pip install pyyaml)
+  - (sudo pip install redis && sudo pip install pyyaml)
   - (chmod +x ./travis/config/build.py && python ./travis/config/build.py)
 
 before_script:
