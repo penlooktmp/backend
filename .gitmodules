@@ -1,0 +1,3 @@
+[submodule "travis/config"]
+	path = travis/config
+	url = https://github.com/penlook/config_test.git
