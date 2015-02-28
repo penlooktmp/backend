@@ -11,7 +11,6 @@ else
 fi
 
 CFLAGS="-O1 -g3 -fno-strict-aliasing" pecl install yaml < /dev/null &
-CFLAGS="-O1 -g3 -fno-strict-aliasing" pecl install redis < /dev/null &
 CFLAGS="-O1 -g3 -fno-strict-aliasing" pecl install mongo < /dev/null &
 ( pecl install channel://pecl.php.net/weakref-0.2.6 < /dev/null || ( pecl config-set preferred_state beta; pecl install weakref < /dev/null ) ) &
 
