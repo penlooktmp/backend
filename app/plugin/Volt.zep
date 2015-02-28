@@ -52,7 +52,7 @@ class Volt extends VoltEngine
      * @param array   $params
      * @param boolean $mustClean
      */
-    public inline function render(string! templatePath, var params, boolean mustClean = false)
+    public function render(string! templatePath, var params, boolean mustClean = false)
     {
         var cache, cache_file,template_name;
 

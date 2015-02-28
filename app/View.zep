@@ -47,7 +47,7 @@ class View
      *
      * @return string text multiple language
      */
-	public inline static function trans(text)
+	public static function trans(text)
 	{
 		var session, language;
 		let session  = Service::getSession();
@@ -65,7 +65,7 @@ class View
      *
      * @return string text multiple language
      */
-	public inline static function site(url)
+	public static function site(url)
 	{
 	    return "http://" . _SERVER["SERVER_NAME"]. "/". url;
 	}
@@ -75,7 +75,7 @@ class View
      *
      * @return string json data
      */
-	public inline static function json(arr)
+	public static function json(arr)
 	{
 	    if (is_object(arr)) {
 	        var json;
@@ -90,7 +90,7 @@ class View
      * @param string img
      * @return string
      */
-    public inline static function img(image)
+    public static function img(image)
     {
         if image != "" && strpos("http", image) {
             return image;
@@ -108,7 +108,7 @@ class View
      * @param string css
      * @return string
      */
-    public inline static function css(style)
+    public static function css(style)
     {
         if empty(style) {
             return "";
@@ -124,7 +124,7 @@ class View
      * @param string script
      * @return string
      */
-    public inline static function js(script)
+    public static function js(script)
     {
         if ! script {
             return "";
@@ -134,7 +134,7 @@ class View
         return script;
     }
 
-	public inline static function less(resources)
+	public static function less(resources)
 	{
         var files, styles, path, file, ext;
         let files = resources->getResources();
@@ -149,7 +149,7 @@ class View
         return styles;
 	}
 
-    public inline static function coffee(resources)
+    public static function coffee(resources)
     {
         var files, styles, file;
         let files = resources;

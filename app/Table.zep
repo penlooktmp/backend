@@ -44,7 +44,7 @@ use Phalcon\Mvc\Model as Phalcon_Model;
  */
 class Table extends Phalcon_Model
 {
-    public inline function initialize()
+    public function initialize()
     {
         this->setConnectionService("mysql");
     }

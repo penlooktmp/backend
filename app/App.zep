@@ -133,7 +133,7 @@ class App
      *
      * @return App\App
      */
-    public inline function initialize()
+    public function initialize()
     {
         switch self::mode {
             case self::DEBUG:
@@ -160,7 +160,7 @@ class App
      * Setup for development mode
      *
      */
-    public inline function setupDebug()
+    public function setupDebug()
     {
         Flow::start("index.php");
         error_reporting(E_ALL);
@@ -171,7 +171,7 @@ class App
      * Setup for production mode
      *
      */
-    public inline function setupRelease()
+    public function setupRelease()
     {
         error_reporting(0);
         ini_set("display_errors", false);
@@ -181,7 +181,7 @@ class App
      * Setup for maintain mode
      *
      */
-    public inline function setupMaintain()
+    public function setupMaintain()
     {
         this->session->set("mode", App::MAINTAIN);
         // TODO
@@ -192,7 +192,7 @@ class App
      *
      * @param {App\Log} logger
      */
-    public inline function setLogger(logger)
+    public function setLogger(logger)
     {
         let this->logger = logger;
         return this;
@@ -203,7 +203,7 @@ class App
      *
      * @return {App\Log}
      */
-    public inline function getLogger()
+    public function getLogger()
     {
         return this->logger;
     }
@@ -215,7 +215,7 @@ class App
      * @param int mode
      * @return {App\App}
      */
-    public inline function setMode(mode)
+    public function setMode(mode)
     {
         let self::mode = mode;
 
@@ -229,7 +229,7 @@ class App
      * Change current mode
      *
      */
-    public inline static function changeMode(mode)
+    public static function changeMode(mode)
     {
         let self::mode = mode;
     }
@@ -240,7 +240,7 @@ class App
      *
      * @return int
      */
-    public inline static function getMode()
+    public static function getMode()
     {
         return self::mode;
     }
@@ -251,7 +251,7 @@ class App
      * @param  {int} variable       Debug mode
      * @return {boolean | string}
      */
-    public inline static function debug(variable = null)
+    public static function debug(variable = null)
     {
         if variable == null {
             return self::mode === self::DEBUG ? true : false;
@@ -268,7 +268,7 @@ class App
      *
      * @return Phalcon\DI\FactoryDefault
      */
-    public inline function getService()
+    public function getService()
     {
         return this->service;
     }
@@ -279,7 +279,7 @@ class App
      * @param function callback
      * @return App\App
      */
-    public inline function setServices(callback)
+    public function setServices(callback)
     {
         call_user_func_array(callback, [ this->getListServices() ]);
         return this;
@@ -290,7 +290,7 @@ class App
      *
      * @return App\App
      */
-    public inline function setService(name, closure)
+    public function setService(name, closure)
     {
         this->getService()->getService()->set(name, closure);
         return this;
@@ -302,7 +302,7 @@ class App
      *
      * @return array
      */
-    public inline function getListServices()
+    public function getListServices()
     {
         Flow::pick("Get list services");
 
@@ -327,7 +327,7 @@ class App
      * @param {App\Loader} loader
      * @return App\App
      */
-    public inline function setLoader(loader)
+    public function setLoader(loader)
     {
         let this->loader = loader;
         return this;
@@ -339,7 +339,7 @@ class App
      *
      * @return App\Loader
      */
-    public inline function getLoader()
+    public function getLoader()
     {
         return this->loader;
     }
@@ -350,7 +350,7 @@ class App
      * @param Phalcon\Mvc\Application app
      * @return App\App
      */
-    public inline function setApplication(app)
+    public function setApplication(app)
     {
         let this->application = app;
         return this;
@@ -361,7 +361,7 @@ class App
      *
      * @return Phalcon\Mvc\Application
      */
-    public inline function getApplication()
+    public function getApplication()
     {
         return this->application;
     }
@@ -373,7 +373,7 @@ class App
      * @param string root
      * @return App\App
      */
-    public inline function setRoot(root)
+    public function setRoot(root)
     {
         this->config->setRoot(root);
 
@@ -388,7 +388,7 @@ class App
      *
      * @return string
      */
-    public inline function getRoot()
+    public function getRoot()
     {
         return this->config->getRoot();
     }
@@ -399,7 +399,7 @@ class App
      * @param string template
      * @return {App\App}
      */
-    public inline function setTemplate(template)
+    public function setTemplate(template)
     {
         let this->template = realpath(template);
         return this;
@@ -410,7 +410,7 @@ class App
      *
      * @return string
      */
-    public inline function getTemplate()
+    public function getTemplate()
     {
         return this->template;
     }
@@ -420,7 +420,7 @@ class App
      *
      * @return {App\App}
      */
-    public inline function start()
+    public function start()
     {
         Flow::pick("Setup loader and application");
 
@@ -438,7 +438,7 @@ class App
      *
      * @return string
      */
-    public inline function html()
+    public function html()
     {
         return this->html;
     }
@@ -448,7 +448,7 @@ class App
      *
      * @return string html
      */
-    public inline function flow()
+    public function flow()
     {
         return Flow::graph();
     }

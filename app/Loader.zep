@@ -66,7 +66,7 @@ class Loader
      *
      * @return array
      */
-    public inline function getNamespaces()
+    public function getNamespaces()
     {
         var config, namespaces;
         let config = Config::getInstance()->getConfig();
@@ -81,7 +81,7 @@ class Loader
      * Register namespace
      *
      */
-    public inline function registerNamespaces()
+    public function registerNamespaces()
     {
         this->loader->registerNamespaces(this->getNamespaces());
     }
@@ -91,7 +91,7 @@ class Loader
      *
      * @var Phalcon\Loader
      */
-    public inline function getLoader()
+    public function getLoader()
     {
     	return this->loader;
     }

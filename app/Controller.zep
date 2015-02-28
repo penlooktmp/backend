@@ -157,7 +157,7 @@ class Controller extends Phalcon_Controller
      * Controller initialize
      *
      */
-	public inline function initialize()
+	public function initialize()
 	{
         Flow::pick("Controller extend from phalcon");
         this->extender();
@@ -166,7 +166,7 @@ class Controller extends Phalcon_Controller
         this->init();
 	}
 
-    public inline function init()
+    public function init()
     {
         // Run AfterExcuteRoute
         let this->after = true;
@@ -208,7 +208,7 @@ class Controller extends Phalcon_Controller
      * Controller extender
      *
      */
-    public inline function extender()
+    public function extender()
     {
         let this->_di = this->{"di"};
         let this->_url = this->{"url"};
@@ -229,7 +229,7 @@ class Controller extends Phalcon_Controller
      *
      * @param array variables
      */
-    public inline function out(variables, value_ = null)
+    public function out(variables, value_ = null)
     {
         if is_null(value_) {
             var variable, value;
@@ -247,7 +247,7 @@ class Controller extends Phalcon_Controller
      *
      * @param array variables
      */
-    public inline function js(variables, value_=null)
+    public function js(variables, value_=null)
     {
         var js;
         let js = this->js;
@@ -270,7 +270,7 @@ class Controller extends Phalcon_Controller
      *
      * @param string layout
      */
-    public inline function pick(layout)
+    public function pick(layout)
     {
         this->_view->pick(layout);
     }
@@ -281,7 +281,7 @@ class Controller extends Phalcon_Controller
      * @param string key
      * @return string | object
      */
-    public inline function route(key=null)
+    public function route(key=null)
     {
         return is_null(key) ? this->_dispatcher->getParam() : this->_dispatcher->getParam(key);
     }
@@ -292,7 +292,7 @@ class Controller extends Phalcon_Controller
      * @param string key
      * @return string | object
      */
-    public inline function get(key=null)
+    public function get(key=null)
     {
         return is_null(key) ? this->_request->getQuery() : this->_request->getQuery(key);
     }
@@ -303,7 +303,7 @@ class Controller extends Phalcon_Controller
      * @param string key
      * @return string | object
      */
-    public inline function post(key=null)
+    public function post(key=null)
     {
         return is_null(key) ? this->_request->getPost() : this->_request->getPost(key);
     }
@@ -314,7 +314,7 @@ class Controller extends Phalcon_Controller
      * @param string key
      * @return string | object
      */
-    public inline function put(key=null)
+    public function put(key=null)
     {
         return is_null(key) ? this->_request->getPut() : this->_request->getPut(key);
     }
@@ -325,7 +325,7 @@ class Controller extends Phalcon_Controller
      * @param string name
      * @return callable
      */
-	public inline function service(name)
+	public function service(name)
 	{
 		return this->_di->getService(name);
 	}
@@ -334,7 +334,7 @@ class Controller extends Phalcon_Controller
      * Enable realtime
      *
      */
-    public inline function socket()
+    public function socket()
     {
         this->out([
             "socket" : "http://service.penlook.com/socket.io/socket.io.js"
@@ -347,7 +347,7 @@ class Controller extends Phalcon_Controller
      * @param string text english sentence
      * @return string multiple languages
      */
-	public inline function trans(text)
+	public function trans(text)
 	{
 		var language;
 		let language = this->session("language");
@@ -366,7 +366,7 @@ class Controller extends Phalcon_Controller
      * @param string value
      * @return array | string
      */
-    public inline function session(key = null, value = null)
+    public function session(key = null, value = null)
     {
         if (is_null(key)) {
             return this->_session;
@@ -388,7 +388,7 @@ class Controller extends Phalcon_Controller
      * @param string value
      * @return array | string
      */
-    public inline function cookies(key = null, value = null)
+    public function cookies(key = null, value = null)
     {
         if (is_null(key)) {
             return this->_cookies;
@@ -404,7 +404,7 @@ class Controller extends Phalcon_Controller
         }
     }
 
-    public inline function dev()
+    public function dev()
     {
         var app;
         let app = new App();
@@ -421,7 +421,7 @@ class Controller extends Phalcon_Controller
      *
      * @param array data
      */
-    public inline function forward(data)
+    public function forward(data)
     {
         let this->after = false;
         return this->_dispatcher->forward(data);
@@ -432,7 +432,7 @@ class Controller extends Phalcon_Controller
      *
      * @param string url
      */
-    public inline function go(url)
+    public function go(url)
     {
         let this->after = false;
         return this->_response->redirect(url);
@@ -443,7 +443,7 @@ class Controller extends Phalcon_Controller
      *
      * @return Phalcon\Http\Request
      */
-    public inline function request()
+    public function request()
     {
         return this->_request;
     }
@@ -453,7 +453,7 @@ class Controller extends Phalcon_Controller
      *
      * @return Phalcon\Http\Response
      */
-    public inline function response()
+    public function response()
     {
         return this->_response;
     }
@@ -463,13 +463,13 @@ class Controller extends Phalcon_Controller
      *
      * @params int code
      */
-    public inline function error(code)
+    public function error(code)
     {
         this->_response->setStatusCode(code,"");
         this->_view->pick("error/" . code);
     }
 
-    public inline function capcha()
+    public function capcha()
     {
         /*
         var options = new \stdClass();
@@ -479,7 +479,7 @@ class Controller extends Phalcon_Controller
         */
     }
 
-    public inline function font()
+    public function font()
     {
 
     }
@@ -489,7 +489,7 @@ class Controller extends Phalcon_Controller
      * @param  {[type]} data [description]
      * @return {[type]}      [description]
      */
-    public inline function json(data)
+    public function json(data)
     {
         this->_response->setJsonContent(data);
         this->_response->setHeader("Content-Type", "application/json");
@@ -502,7 +502,7 @@ class Controller extends Phalcon_Controller
      * @param  string name angular module
      * @return void
      */
-    public inline function ng(name)
+    public function ng(name)
     {
         this->out([
             "ng" : "data-ng-app=\"". name ."\""
@@ -515,7 +515,7 @@ class Controller extends Phalcon_Controller
      * @param mixed variable
      * @return void
      */
-	public inline function debug(variable)
+	public function debug(variable)
 	{
 		echo "<pre>";
 		print_r(variable);
@@ -528,7 +528,7 @@ class Controller extends Phalcon_Controller
      *
      * @return Phalcon\Mvc\View
      */
-    public inline function view()
+    public function view()
     {
         return this->_view;
     }

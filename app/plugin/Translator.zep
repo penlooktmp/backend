@@ -61,7 +61,7 @@ class Translator
      * Constructor
      *
      */
-    private inline function __construct(language)
+    private function __construct(language)
 	{
         //var path;
         //let path = \App\Path::getInstance();
@@ -77,7 +77,7 @@ class Translator
      *
      * @return App\Translator
      */
-	public inline static function getInstance(language)
+	public static function getInstance(language)
     {
         if (!isset(self::static_translators[language])) {
             let self::static_translators[language] = new Translator(language);
@@ -86,7 +86,7 @@ class Translator
         return self::static_translators[language];
     }
 
-    public inline function getTranslator()
+    public function getTranslator()
     {
         return this->translator;
     }

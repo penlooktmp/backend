@@ -51,12 +51,12 @@ class Model
      */
     public session;
 
-    public inline function __construct()
+    public function __construct()
     {
         let this->session = Service::getSession();
     }
 
-    public inline function session(key, value = null)
+    public function session(key, value = null)
     {
         if is_null(value) {
             var res;

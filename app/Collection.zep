@@ -48,7 +48,7 @@ class Collection extends Phalcon_Collection
      * Initialize Collection
      *
      */
-	public inline function initialize()
+	public function initialize()
     {
         this->setConnectionService("mongo");
     }

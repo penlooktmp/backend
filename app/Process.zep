@@ -48,7 +48,7 @@ class Process
      *
      * @return Process
      */
-    public inline static function getInstance()
+    public static function getInstance()
     {
         if (!self::static_process) {
             let self::static_process = new Process();
@@ -64,7 +64,7 @@ class Process
      *
      * @return mixed
      */
-    public inline static function arr2obj(var arr)
+    public static function arr2obj(var arr)
     {
         return json_decode(json_encode(arr), false);
     }
@@ -74,7 +74,7 @@ class Process
      *
      * @param variable
      */
-    public inline static function debug(var variable)
+    public static function debug(var variable)
     {
         echo "<pre>";
         print_r(variable);
@@ -90,7 +90,7 @@ class Process
      *
      * @return string
      */
-    public inline static function encodePassword(var email, var hash_password) // Encode second times
+    public static function encodePassword(var email, var hash_password) // Encode second times
     {
         // $secure = '~!@#$%^&*()_+[]';
         // $hash_password = md5(sha1(password).$secure));
@@ -105,7 +105,7 @@ class Process
      * @param  string path
      * @return string
      */
-    public inline static function getExtension(path)
+    public static function getExtension(path)
     {
         return substr(strrchr(path,'.'),1);
     }
@@ -115,7 +115,7 @@ class Process
      * @param  string path
      * @return string
      */
-    public inline static function getFileType(path)
+    public static function getFileType(path)
     {
         var ext;
         let ext = self::getExtension(path);
@@ -142,7 +142,7 @@ class Process
      *
      * @return hash
      */
-    public inline static function md5(text, limit=null)
+    public static function md5(text, limit=null)
     {
         if is_null(limit) {
             return md5(text);
@@ -161,7 +161,7 @@ class Process
      *
      * @return hash
      */
-    public inline static function match(pattern, text)
+    public static function match(pattern, text)
     {
         var matches;
         let matches = [];
@@ -185,7 +185,7 @@ class Process
         return hash;
     }*/
 
-    public inline static function cropImage(var source_image, var target_image, var crop_area)
+    public static function cropImage(var source_image, var target_image, var crop_area)
     {
         var source_file_name, source_image_type, original_image, cropped_image;
 
