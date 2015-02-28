@@ -27,87 +27,49 @@
  *     Nam Vo           <namvh@penlook.com>
  */
 
-namespace App\Module;
+namespace App\Controller;
 
-use App\Model;
-use App\Model\AppModel;
-use App\Model\UserModel;
-use App\Process;
-use App\Service;
+use Phalcon\Mvc\View;
+use App\Controller;
+use App\Model\AliasModel;
+use App\Model\Collection\Status;
 
 /**
- * Authenticate
+ * App Controller
  *
  * @category   Penlook Application
- * @package    App\Config
+ * @package    App\Controller
  * @copyright  Penlook Development Team
  * @license    GNU Affero General Public
  * @version    1.0
  * @link       http://github.com/penlook
  * @since      Class available since Release 1.0
  */
-
-class Auth extends Model
+class AliasController extends Controller
 {
-	/**
-     * Check login
-     *
-     * @var login
-     */
-	public login;
-
-	/**
-     *
-     * @var model
-     */
-	public model;
 
     /**
+     * Index Action
      *
-     * @var AppModel
+     * @return IndexController forwarding
      */
-	public app;
-
-	public session;
-
-	public function __construct()
+    public inline function indexAction()
     {
-        var id;
+        var alias, model;
+        let alias = this->route("alias");
+        let model = new AliasModel(alias);
 
-        parent::__construct();
-        let this->login = false;
-        let id = this->getCurrentUser();
-
-        if id && (id > 0) {
-            let this->login = true;
+        if ! model->isValid() {
+            return this->error(404);
         }
 
-        let this->app = AppModel::getInstance();
+        return this->forward([
+             "controller" : model->getController(),
+             "action"     : "index",
+             "params"     : [
+                   "id" : model->getAlias()->{"pid"}
+             ]
+        ]);
     }
 
-    /**
-     * Get ID of current user
-     *
-     * @return int
-     */
-    public function getCurrentUser()
-    {
-        return this->session("user_id");
-    }
-
-    /**
-     * Application Logout
-     *
-     * @return void
-     */
-    public function logout()
-    {
-        //let this->login = "ac";
-        //this->app->logoutUser();
-    }
-
-    public function getSecurityToken()
-    {
-        return "abcdef";
-    }
 }

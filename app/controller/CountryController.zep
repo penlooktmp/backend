@@ -27,87 +27,23 @@
  *     Nam Vo           <namvh@penlook.com>
  */
 
-namespace App\Module;
+namespace App\Controller;
 
-use App\Model;
-use App\Model\AppModel;
-use App\Model\UserModel;
-use App\Process;
-use App\Service;
+use Phalcon\Mvc\View;
+use App\Controller;
 
 /**
- * Authenticate
+ * Country Controller
  *
  * @category   Penlook Application
- * @package    App\Config
+ * @package    App\Controller
  * @copyright  Penlook Development Team
  * @license    GNU Affero General Public
  * @version    1.0
  * @link       http://github.com/penlook
  * @since      Class available since Release 1.0
  */
-
-class Auth extends Model
+class CountryController extends Controller
 {
-	/**
-     * Check login
-     *
-     * @var login
-     */
-	public login;
 
-	/**
-     *
-     * @var model
-     */
-	public model;
-
-    /**
-     *
-     * @var AppModel
-     */
-	public app;
-
-	public session;
-
-	public function __construct()
-    {
-        var id;
-
-        parent::__construct();
-        let this->login = false;
-        let id = this->getCurrentUser();
-
-        if id && (id > 0) {
-            let this->login = true;
-        }
-
-        let this->app = AppModel::getInstance();
-    }
-
-    /**
-     * Get ID of current user
-     *
-     * @return int
-     */
-    public function getCurrentUser()
-    {
-        return this->session("user_id");
-    }
-
-    /**
-     * Application Logout
-     *
-     * @return void
-     */
-    public function logout()
-    {
-        //let this->login = "ac";
-        //this->app->logoutUser();
-    }
-
-    public function getSecurityToken()
-    {
-        return "abcdef";
-    }
 }
