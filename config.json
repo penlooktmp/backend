@@ -51,6 +51,12 @@
         "call-gatherer-pass": true,
         "check-invalid-reads": false
     },
+    "optimizer-dirs": [
+        "app/appc"
+    ],
+    "extra-sources": [
+        "appc/test.c"
+    ],
     "namespace": "app",
     "name": "app",
     "description": "",

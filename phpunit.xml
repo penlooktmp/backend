@@ -13,12 +13,8 @@
     syntaxCheck="true">
     <testsuites>
         <testsuite name="Penlook-Backend">
-            <directory></directory>
-            <file>/app/ConfigTest.php</file>
-            <file>app/ServiceTest.php</file>
-            <file>app/AppTest.php</file>
-            <file>app/IndexTest.php</file>
-            <file>app/FlowTest.php</file>
+            <file>app/appc/HellocTest.php</file>
+            <file>app/ConfigTest.php</file>
         </testsuite>
 
     </testsuites>

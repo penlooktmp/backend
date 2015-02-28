@@ -57,6 +57,11 @@ class Config
      */
     public root;
 
+    /**
+     * Application Context
+     *
+     * @var app App
+     */
     public context;
 
     /**
@@ -134,7 +139,7 @@ class Config
      *
      * @return array
      */
-    public function configurePath(raw_config, path_app)
+    public function configurePath(array raw_config, string path_app) -> array
     {
         var key, value, tmp;
         let tmp = [];
@@ -144,6 +149,8 @@ class Config
     	}
 
         let raw_config["app"] = tmp;
+        let raw_config["hello"] = helloc("abc");
+
     	return raw_config;
     }
 

@@ -72,7 +72,9 @@ class ConfigTest extends Test
     {
         $config = $this->config->getRawConfig();
         $this->assertEquals($config["language"], "en_US");
-        $this->assertNotEmpty($config["structure"]);
+        $this->assertNotEmpty($config["app"]);
+
+        print_r($config);
     }
 
     public function testRoot()
