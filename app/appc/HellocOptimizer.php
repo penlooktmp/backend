@@ -13,7 +13,7 @@ class HellocOptimizer extends OptimizerAbstract
 	{
 		$call->processExpectedReturn($context);
         $symbolVariable = $call->getSymbolVariable();
-        $args = $call->getReadOnlyResolvedParams($expression['parameters'], $context, $expression);
+        $args = $call->getResolvedParams($expression['parameters'], $context, $expression);
         return new CompiledExpression('int', 'helloc(' . $args[0] . ')', $expression);
 	}
 }

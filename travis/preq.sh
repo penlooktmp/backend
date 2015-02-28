@@ -10,9 +10,9 @@ else
 	( CFLAGS="-O2 -g3 -fno-strict-aliasing" pecl upgrade apc < /dev/null; phpenv config-add "$DIR/apc.ini" ) &
 fi
 
-CFLAGS="-O1 -g3 -fno-strict-aliasing" pecl install igbinary < /dev/null &
-CFLAGS="-O1 -g3 -fno-strict-aliasing" pecl install imagick < /dev/null &
 CFLAGS="-O1 -g3 -fno-strict-aliasing" pecl install yaml < /dev/null &
+CFLAGS="-O1 -g3 -fno-strict-aliasing" pecl install redis < /dev/null &
+CFLAGS="-O1 -g3 -fno-strict-aliasing" pecl install mongo < /dev/null &
 ( pecl install channel://pecl.php.net/weakref-0.2.6 < /dev/null || ( pecl config-set preferred_state beta; pecl install weakref < /dev/null ) ) &
 
 wait
