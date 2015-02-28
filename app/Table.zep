@@ -27,13 +27,25 @@
  *     Nam Vo           <namvh@penlook.com>
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+namespace App;
 
-#include "php.h"
-#include "php_ext.h"
+use Phalcon\Mvc\Model as Phalcon_Model;
 
-int helloc(zval *str) {
-    return 1234;
+/**
+ * Application Table
+ *
+ * @category   Penlook Application
+ * @package    App\Config
+ * @copyright  Penlook Development Team
+ * @license    GNU Affero General Public
+ * @version    1.0
+ * @link       http://github.com/penlook
+ * @since      Class available since Release 1.0
+ */
+class Table extends Phalcon_Model
+{
+    public inline function initialize()
+    {
+        this->setConnectionService("mysql");
+    }
 }

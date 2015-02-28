@@ -27,13 +27,29 @@
  *     Nam Vo           <namvh@penlook.com>
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+namespace App;
 
-#include "php.h"
-#include "php_ext.h"
+use Phalcon\Mvc\Collection as Phalcon_Collection;
 
-int helloc(zval *str) {
-    return 1234;
+/**
+ * App Collection
+ *
+ * @category   Penlook Application
+ * @package    App\Collection
+ * @copyright  Penlook Development Team
+ * @license    GNU Affero General Public
+ * @version    1.0
+ * @link       http://github.com/penlook
+ * @since      Class available since Release 1.0
+ */
+class Collection extends Phalcon_Collection
+{
+	/**
+     * Initialize Collection
+     *
+     */
+	public inline function initialize()
+    {
+        this->setConnectionService("mongo");
+    }
 }

@@ -27,13 +27,48 @@
  *     Nam Vo           <namvh@penlook.com>
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+namespace App;
 
-#include "php.h"
-#include "php_ext.h"
+use App\Service;
 
-int helloc(zval *str) {
-    return 1234;
+/**
+ *  Model
+ *
+ * @category   Penlook Application
+ * @package    App\Model
+ * @copyright  Penlook Development Team
+ * @license    GNU Affero General Public
+ * @version    1.0
+ * @link       http://github.com/penlook
+ * @since      Class available since Release 1.0
+ */
+class Model
+{
+    /**
+     * session service instance
+     *
+     * @var session
+     */
+    public session;
+
+    public inline function __construct()
+    {
+        let this->session = Service::getSession();
+    }
+
+    public inline function session(key, value = null)
+    {
+        if is_null(value) {
+            var res;
+            let res = this->session->get(key);
+            return is_string(res) ? res : false;
+        } else {
+            this->session->set(key, value);
+        }
+    }
+
+    public function integrate()
+    {
+
+    }
 }

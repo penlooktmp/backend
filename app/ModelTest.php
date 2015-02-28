@@ -1,3 +1,4 @@
+<?php
 /**
  * Penlook Project
  *
@@ -23,17 +24,41 @@
  *
  * Authors:
  *     Loi Nguyen       <loint@penlook.com>
- *     Tin Nguyen       <tinntt@penlook.com>
- *     Nam Vo           <namvh@penlook.com>
+ *     Viet Nguyen      <vietna@penlook.com>
  */
 
-#ifdef HAVE_CONFIG_H
-#include "config.h"
-#endif
+namespace App;
 
-#include "php.h"
-#include "php_ext.h"
+use App\Model;
 
-int helloc(zval *str) {
-    return 1234;
+/**
+ * Model Test
+ *
+ * @category   Penlook Application
+ * @package    App
+ * @copyright  Penlook Development Team
+ * @license    GNU Affero General Public
+ * @version    1.0
+ * @link       http://github.com/penlook
+ * @since      Class available since Release 1.0
+ */
+class ModelTest extends Test
+{
+    protected $model;
+
+    public function __construct()
+    {
+        $this->model = new Model();
+    }
+
+    public function testSession()
+    {
+        //Unknown
+    }
+
+    public function testIntegrate()
+    {
+        //Not yet handled
+    }
+
 }
