@@ -2,6 +2,8 @@
 
 DIR=$(readlink -enq $(dirname $0))
 
+echo $DIR
+
 sudo apt-get -qq update &
 
 if [ "$(php -r 'echo PHP_VERSION_ID;')" -ge 50500 ]; then
@@ -18,4 +20,5 @@ wait
 phpenv config-add "$DIR/memcache.ini"
 phpenv config-add "$DIR/memcached.ini"
 phpenv config-add "$DIR/mongo.ini"
+phpenv config-add "$DIR/redis.ini"
 phpenv config-rm xdebug.ini
