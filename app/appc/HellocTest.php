@@ -16,5 +16,6 @@ class HellocTest extends Test
 {
 	public function testHelloc()
 	{
+
 	}
 }

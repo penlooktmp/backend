@@ -149,7 +149,6 @@ class Config
     	}
 
         let raw_config["app"] = tmp;
-        let raw_config["hello"] = helloc("abc");
 
     	return raw_config;
     }
@@ -180,6 +179,7 @@ class Config
 
         return [
             "language"  : "en_US",
+            "hello" : helloc("abc"),
             "app" : this->get("backend.yml", "app"),
             "path" : this->get("backend.yml", "path"),
             "database"  : [

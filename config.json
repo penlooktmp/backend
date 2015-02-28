@@ -59,8 +59,8 @@
     ],
     "namespace": "app",
     "name": "app",
-    "description": "",
-    "author": "",
+    "description": "Backend component",
+    "author": "Penlook Development Team",
     "version": "0.0.1",
     "verbose": false,
     "requires": {

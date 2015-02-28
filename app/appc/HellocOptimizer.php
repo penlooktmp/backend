@@ -2,9 +2,10 @@
 namespace Zephir\Optimizers\FunctionCall;
 
 use Zephir\Call;
-use Zephir\CompilerException;
 use Zephir\CompilationContext;
+use Zephir\CompiledExpression;
 use Zephir\Optimizers\OptimizerAbstract;
+use Zephir\CompilerException;
 
 class HellocOptimizer extends OptimizerAbstract
 {
