@@ -30,6 +30,12 @@
 namespace App\Controller;
 
 use App\Controller;
+use App\Model\AppModel;
+use App\Model\LanguageModel;
+use App\Model\ProfileModel;
+use App\Model\UserModel;
+use App\Module\Auth;
+use Phalcon\Mvc\View;
 
 /**
  * User Controller
@@ -44,10 +50,59 @@ use App\Controller;
  */
 class UserController extends Controller
 {
-    public function abcAction()
+    /**
+     * Global user
+     *
+     * @var UserModel
+     */
+    public user;
+
+    /**
+     * @var AppModel
+     */
+    public app;
+
+    /**
+     * @var Auth
+     */
+    public auth;
+
+    /**
+     * Current user
+     *
+     *  @var UserModel
+     */
+    public currentUser;
+
+    public languages;
+
+    /**
+     * Dispatch to User Page or Profile Page
+     *
+     * @return User/user | User/profile
+     */
+    public function indexAction()
     {
-        var a;
-        let a = 1;
-        echo a;
+        var allow_edit, id;
+
+        let id = this->route("id");
+        let this->auth = new Auth();
+        let this->app = AppModel::getInstance();
+
+        let this->currentUser = new UserModel(id);
+        let this->user = new UserModel(this->auth->getCurrentUser());
+        let this->languages = new LanguageModel();
+
+        if ! this->user->isValid() {
+            return this->error(404);
+        }
+
+        let allow_edit = true;
+
+        if !this->auth->getCurrentUser() || (this->auth->getCurrentUser() != id) {
+            let allow_edit = false;
+        }
+
+        echo allow_edit;
     }
 }

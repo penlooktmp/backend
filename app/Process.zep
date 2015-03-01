@@ -171,7 +171,7 @@ class Process
 
     public static function hashID(var id)
     {
-        var hash_number, hash_table, str_hash, hash = "", k, ch;
+        /*var hash_number, hash_table, str_hash, hash = "", k, ch;
 
         let hash_number = 1050382 + id;
         let hash_table = "APZPLMXYDW";
@@ -182,7 +182,7 @@ class Process
             let hash .= hash_table[k];
         }
 
-        return hash;
+        return hash;*/
     }
 
     public function splitWord(var str)

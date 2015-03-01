@@ -68,7 +68,7 @@ class Volt extends VoltEngine
         }
 
         var app;
-        let app = new App();
+        let app = new \App\App();
 
         if app->debug {
             var template, template_file;
