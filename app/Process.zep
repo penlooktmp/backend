@@ -169,7 +169,7 @@ class Process
         return (count(matches)>0) ? true : false;
     }
 
-    /*public static function hashID(var id)
+    public static function hashID(var id)
     {
         var hash_number, hash_table, str_hash, hash = "", k, ch;
 
@@ -183,65 +183,6 @@ class Process
         }
 
         return hash;
-    }*/
-
-    public static function cropImage(var source_image, var target_image, var crop_area)
-    {
-        var source_file_name, source_image_type, original_image, cropped_image;
-
-        let source_file_name = basename(source_image);
-        let source_image_type = substr(source_file_name, -3, 3);
-
-        switch (strtolower(source_image_type)) {
-            case "jpg":
-                let original_image = imagecreatefromjpeg(source_image);
-                break;
-
-            case "gif":
-                let original_image = imagecreatefromgif(source_image);
-                break;
-
-            case "png":
-                let original_image = imagecreatefrompng(source_image);
-                break;
-
-            default:
-                trigger_error("cropImage(): Invalid source image type", E_USER_ERROR);
-
-                return false;
-        }
-
-        let cropped_image = imagecreatetruecolor(crop_area["width"], crop_area["height"]);
-        imagecopy(cropped_image, original_image, 0, 0, crop_area["left"], crop_area["top"], crop_area["width"], crop_area["height"]);
-        var target_file_name, target_image_type;
-
-        let target_file_name = basename(target_image);
-        let target_image_type = substr(target_file_name, -3, 3);
-
-        switch (strtolower(target_image_type)) {
-            case "jpg":
-                imagejpeg(cropped_image, target_image, 100);
-                break;
-
-            case "gif":
-                imagegif(cropped_image, target_image);
-                break;
-
-            case "png":
-                imagepng(cropped_image, target_image, 0);
-                break;
-
-            default:
-                trigger_error("cropImage(): Invalid target image type", E_USER_ERROR);
-                imagedestroy(cropped_image);
-                imagedestroy(original_image);
-
-                return false;
-        }
-        imagedestroy(cropped_image);
-        imagedestroy(original_image);
-
-        return true;
     }
 
     public function splitWord(var str)
