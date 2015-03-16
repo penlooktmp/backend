@@ -4,6 +4,5 @@ namespace Phalcon\App;
 use Phalcon\App\Service;
 
 class Test {
-	
 }
 
