@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <phpunit
-    bootstrap="app/Test.php"
+    bootstrap="phalcon/Test.php"
     backupGlobals="false"
     backupStaticAttributes="false"
     colors="true"
@@ -13,8 +13,7 @@
     syntaxCheck="true">
     <testsuites>
         <testsuite name="Penlook-Backend">
-            <file>app/appc/HellocTest.php</file>
-            <file>app/ConfigTest.php</file>
+            <file>phalcon/driver/redis/RedisTest.php</file>
         </testsuite>
 
     </testsuites>
