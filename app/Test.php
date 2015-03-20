@@ -27,7 +27,7 @@
  *     Viet Nguyen      <tinntt@penlook.com>
  */
 
-namespace App;
+namespace Phalcon;
 
 use \Phalcon\DI\FactoryDefault;
 use \Phalcon\DI;
